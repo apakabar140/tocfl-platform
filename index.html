@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>TOCFL 聽力練習平台 | one-forty</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF8F4;
+  --card: #FFFFFF;
+  --primary: #C85A2A;
+  --primary-dk: #9E3F18;
+  --primary-lt: #F0D4C4;
+  --accent: #2A6B8A;
+  --text: #1C1714;
+  --text-md: #5A4E48;
+  --text-lt: #9C8C84;
+  --border: #E8E0D8;
+  --correct: #2D7D46;
+  --correct-bg: #EAF5ED;
+  --wrong: #B83228;
+  --wrong-bg: #FDECEA;
+  --shadow: 0 4px 24px rgba(28,23,20,0.10);
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── SCREENS ── */
+.screen { display: none; flex: 1; flex-direction: column; animation: fadeIn .3s ease; }
+.screen.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ── HEADER ── */
+.hdr {
+  background: var(--primary);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.hdr-logo { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+.hdr-logo span { opacity: .6; font-weight: 400; }
+.hdr-back {
+  background: rgba(255,255,255,.18);
+  border: none; color: #fff;
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 13px; cursor: pointer;
+  font-family: inherit; transition: background .2s;
+}
+.hdr-back:hover { background: rgba(255,255,255,.3); }
+.hdr-lang { display: flex; gap: 4px; }
+.lang-btn {
+  background: rgba(255,255,255,.15);
+  border: none; color: #fff;
+  padding: 4px 9px; border-radius: 16px;
+  font-size: 11px; cursor: pointer;
+  font-family: inherit; transition: background .2s;
+}
+.lang-btn.active { background: rgba(255,255,255,.9); color: var(--primary); font-weight: 700; }
+
+/* ── LOGIN SCREEN ── */
+#screen-login {
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
+}
+.login-card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+}
+.login-brand { text-align: center; margin-bottom: 28px; }
+.login-brand .brand-icon { font-size: 40px; margin-bottom: 8px; }
+.login-brand h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; color: var(--primary);
+  letter-spacing: .01em;
+}
+.login-brand p { font-size: 13px; color: var(--text-lt); margin-top: 4px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-md); margin-bottom: 6px; letter-spacing: .04em; }
+.form-group select,
+.form-group input {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color .2s;
+  appearance: none;
+}
+.form-group select:focus,
+.form-group input:focus { outline: none; border-color: var(--primary); }
+.login-btn {
+  width: 100%; padding: 14px;
+  background: var(--primary);
+  color: #fff; border: none;
+  border-radius: 12px;
+  font-size: 16px; font-weight: 700;
+  font-family: inherit;
+  cursor: pointer; margin-top: 8px;
+  transition: background .2s, transform .1s;
+}
+.login-btn:active { transform: scale(.98); }
+.login-btn:hover { background: var(--primary-dk); }
+.login-error {
+  background: var(--wrong-bg);
+  color: var(--wrong);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-top: 12px;
+  display: none;
+}
+
+/* ── HOME SCREEN ── */
+#screen-home { padding: 0; }
+.home-hero {
+  background: var(--primary);
+  padding: 28px 24px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+.home-welcome { color: rgba(255,255,255,.75); font-size: 13px; margin-bottom: 4px; }
+.home-name { color: #fff; font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+.home-stats {
+  display: flex; gap: 12px;
+}
+.stat-pill {
+  background: rgba(255,255,255,.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  color: #fff; font-size: 12px;
+}
+.stat-pill strong { font-size: 15px; display: block; }
+
+.home-body { padding: 24px 20px; flex: 1; }
+.section-label {
+  font-size: 11px; font-weight: 700;
+  color: var(--text-lt); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.mode-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.mode-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all .2s;
+  display: flex; align-items: center; gap: 16px;
+}
+.mode-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
+.mode-icon { font-size: 32px; flex-shrink: 0; }
+.mode-info { flex: 1; }
+.mode-title { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+.mode-desc { font-size: 13px; color: var(--text-md); line-height: 1.4; }
+.mode-arrow { color: var(--text-lt); font-size: 18px; }
+
+/* ── PRACTICE SELECT SCREEN ── */
+#screen-practice-select { padding: 20px; overflow-y: auto; }
+.psel-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.psel-sub { font-size: 13px; color: var(--text-md); margin-bottom: 20px; }
+.part-cards { display: flex; flex-direction: column; gap: 10px; }
+.part-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  transition: all .2s;
+  display: flex; align-items: center; gap: 14px;
+}
+.part-card:hover { border-color: var(--primary); background: #FEF8F5; }
+.part-badge {
+  width: 44px; height: 44px;
+  background: var(--primary-lt);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.part-info { flex: 1; }
+.part-name { font-size: 15px; font-weight: 700; }
+.part-meta { font-size: 12px; color: var(--text-lt); margin-top: 2px; }
+
+/* ── MOCK SELECT SCREEN ── */
+#screen-mock-select { padding: 20px; overflow-y: auto; }
+.vol-cards { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.vol-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  transition: all .2s;
+  display: flex; align-items: center; gap: 14px;
+}
+.vol-card:hover { border-color: var(--accent); background: #F2F8FB; }
+.vol-num {
+  width: 44px; height: 44px;
+  background: #E4F0F6;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 900; color: var(--accent);
+}
+.vol-info { flex: 1; }
+.vol-name { font-size: 15px; font-weight: 700; }
+.vol-meta { font-size: 12px; color: var(--text-lt); margin-top: 2px; }
+
+/* ── QUIZ SCREEN ── */
+#screen-quiz { overflow: hidden; }
+.quiz-progress { height: 3px; background: var(--border); flex-shrink: 0; }
+.quiz-bar { height: 3px; background: var(--primary); transition: width .4s ease; }
+.quiz-meta {
+  padding: 12px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.quiz-counter { font-size: 12px; color: var(--text-lt); font-weight: 600; }
+.quiz-score {
+  background: var(--primary);
+  color: #fff; font-size: 12px; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px;
+}
+.quiz-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+/* Image card */
+.img-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 160px;
+  padding: 16px;
+}
+.img-card img {
+  max-width: 100%; max-height: 260px;
+  object-fit: contain;
+}
+
+/* Audio card */
+.audio-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  display: flex; align-items: center; gap: 14px;
+}
+.play-btn {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--primary); border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0;
+  transition: background .2s, transform .1s;
+}
+.play-btn:active { transform: scale(.93); }
+.play-btn:hover { background: var(--primary-dk); }
+.play-btn svg { fill: #fff; width: 20px; height: 20px; }
+.audio-info { flex: 1; }
+.audio-label { font-size: 14px; font-weight: 600; color: var(--text); }
+.audio-hint { font-size: 11px; color: var(--text-lt); margin-top: 2px; }
+.audio-status { font-size: 11px; color: var(--primary); margin-top: 2px; display: none; }
+
+/* Options */
+.options-wrap { display: flex; flex-direction: column; gap: 8px; }
+.opt-label { font-size: 11px; font-weight: 700; color: var(--text-lt); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+.opt-btn {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 16px;
+  display: flex; align-items: center; gap: 12px;
+  cursor: pointer; text-align: left; width: 100%;
+  font-family: inherit; font-size: 14px; color: var(--text);
+  transition: all .15s;
+}
+.opt-btn:not([disabled]):hover {
+  border-color: var(--primary);
+  background: #FEF8F5;
+  transform: translateX(3px);
+}
+.opt-letter {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--bg); border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+  transition: all .15s;
+}
+.opt-btn.correct { border-color: var(--correct); background: var(--correct-bg); }
+.opt-btn.correct .opt-letter { background: var(--correct); color: #fff; border-color: var(--correct); }
+.opt-btn.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+.opt-btn.wrong .opt-letter { background: var(--wrong); color: #fff; border-color: var(--wrong); }
+.opt-btn.reveal { border-color: var(--correct); background: var(--correct-bg); opacity: .55; }
+.opt-btn.reveal .opt-letter { background: var(--correct); color: #fff; border-color: var(--correct); }
+
+/* Feedback */
+.feedback {
+  border-radius: 12px; padding: 14px 16px;
+  font-size: 13px; line-height: 1.6; display: none;
+}
+.feedback.correct-fb { background: var(--correct-bg); border: 1.5px solid var(--correct); color: var(--correct); }
+.feedback.wrong-fb { background: var(--wrong-bg); border: 1.5px solid var(--wrong); color: var(--wrong); }
+.feedback-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+
+/* AI explanation */
+.ai-explain {
+  background: #F5F0FF; border: 1.5px solid #C4A8F0;
+  border-radius: 12px; padding: 14px 16px;
+  font-size: 13px; line-height: 1.7; display: none; color: #3D2B7A;
+}
+.ai-explain-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.ai-loading { color: #8A6DC0; font-size: 12px; }
+
+/* Next btn */
+.next-btn {
+  background: var(--primary); color: #fff; border: none;
+  border-radius: 12px; padding: 14px 24px;
+  font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; width: 100%; display: none;
+  transition: background .2s;
+}
+.next-btn:hover { background: var(--primary-dk); }
+
+/* ── RESULTS SCREEN ── */
+#screen-results {
+  justify-content: center; align-items: center;
+  padding: 32px 24px; overflow-y: auto;
+}
+.result-card {
+  background: var(--card); border-radius: 24px;
+  padding: 36px 28px; box-shadow: var(--shadow);
+  max-width: 400px; width: 100%; text-align: center;
+}
+.result-emoji { font-size: 52px; margin-bottom: 12px; }
+.result-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.result-score { font-size: 52px; font-weight: 900; color: var(--primary); margin: 12px 0; line-height: 1; }
+.result-denom { font-size: 18px; color: var(--text-lt); }
+.result-bar-bg { background: var(--border); border-radius: 100px; height: 10px; margin: 16px 0; overflow: hidden; }
+.result-bar { height: 10px; border-radius: 100px; background: var(--primary); transition: width 1.2s cubic-bezier(.16,1,.3,1); }
+.result-msg { font-size: 14px; color: var(--text-md); margin-bottom: 24px; line-height: 1.6; }
+.result-btns { display: flex; flex-direction: column; gap: 10px; }
+.btn-primary {
+  background: var(--primary); color: #fff; border: none;
+  border-radius: 12px; padding: 14px 24px;
+  font-size: 15px; font-weight: 700; font-family: inherit;
+  cursor: pointer; transition: background .2s;
+}
+.btn-primary:hover { background: var(--primary-dk); }
+.btn-secondary {
+  background: transparent; color: var(--text-md);
+  border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 13px 24px; font-size: 14px; font-family: inherit;
+  cursor: pointer; transition: border-color .2s;
+}
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Loading overlay */
+#loading {
+  position: fixed; inset: 0; background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; z-index: 100;
+}
+.loading-spinner {
+  width: 40px; height: 40px; border: 3px solid var(--border);
+  border-top-color: var(--primary); border-radius: 50%;
+  animation: spin .8s linear infinite; margin-bottom: 14px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 14px; color: var(--text-lt); }
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">載入中...</div>
+</div>
+
+<!-- LOGIN -->
+<div id="screen-login" class="screen">
+  <div style="background:var(--primary);padding:20px 24px;">
+    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px;">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="brand-icon">🎧</div>
+      <h1>TOCFL 聽力練習</h1>
+      <p id="login-sub">請輸入您的報名資料登入</p>
+    </div>
+    <div class="form-group">
+      <label id="lbl-nationality">國籍</label>
+      <select id="inp-nationality">
+        <option value="">-- 請選擇 --</option>
+        <option value="ID">🇮🇩 Indonesia</option>
+        <option value="VN">🇻🇳 Việt Nam</option>
+        <option value="PH">🇵🇭 Philippines</option>
+        <option value="TH">🇹🇭 ประเทศไทย</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label id="lbl-passport">護照號碼 / Passport Number</label>
+      <input type="text" id="inp-passport" placeholder="e.g. A1234567" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label id="lbl-dob">出生年月日 / Date of Birth</label>
+      <input type="date" id="inp-dob">
+    </div>
+    <button class="login-btn" id="login-btn" onclick="doLogin()">
+      <span id="login-btn-text">登入 / Login</span>
+    </button>
+    <div class="login-error" id="login-error"></div>
+  </div>
+  </div>
+</div>
+
+<!-- HOME -->
+<div id="screen-home" class="screen">
+  <div class="hdr">
+    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+    <div class="hdr-lang">
+      <button class="lang-btn active" onclick="setLang('zh')">中</button>
+      <button class="lang-btn" onclick="setLang('id')">ID</button>
+      <button class="lang-btn" onclick="setLang('vi')">VI</button>
+      <button class="lang-btn" onclick="setLang('tl')">TL</button>
+      <button class="lang-btn" onclick="setLang('th')">TH</button>
+    </div>
+  </div>
+  <div class="home-hero">
+    <div class="home-welcome" id="home-welcome">歡迎回來</div>
+    <div class="home-name" id="home-name">—</div>
+    <div class="home-stats">
+      <div class="stat-pill"><strong id="stat-done">0</strong><span id="stat-done-lbl">已練習</span></div>
+      <div class="stat-pill"><strong id="stat-acc">—</strong><span id="stat-acc-lbl">正確率</span></div>
+    </div>
+  </div>
+  <div class="home-body">
+    <div class="section-label" id="home-sec1">選擇練習模式</div>
+    <div class="mode-cards">
+      <div class="mode-card" onclick="goScreen('screen-practice-select')">
+        <div class="mode-icon">🎯</div>
+        <div class="mode-info">
+          <div class="mode-title" id="mode1-title">練習模式</div>
+          <div class="mode-desc" id="mode1-desc">選擇部分，針對弱點加強練習</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+      <div class="mode-card" onclick="goScreen('screen-mock-select')">
+        <div class="mode-icon">📝</div>
+        <div class="mode-info">
+          <div class="mode-title" id="mode2-title">模擬考試</div>
+          <div class="mode-desc" id="mode2-desc">完整 50 題，體驗真實考試</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+    </div>
+    <div class="section-label" id="home-sec2">快速練習</div>
+    <div class="part-cards" id="quick-parts"></div>
+  </div>
+</div>
+
+<!-- PRACTICE SELECT -->
+<div id="screen-practice-select" class="screen">
+  <div class="hdr">
+    <button class="hdr-back" onclick="goScreen('screen-home')">← <span id="back1">返回</span></button>
+    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+    <div style="width:60px"></div>
+  </div>
+  <div style="padding:20px 20px 0;">
+    <div class="psel-title" id="psel-title">練習模式</div>
+    <div class="psel-sub" id="psel-sub">選擇你想練習的部分，五冊混合出題</div>
+  </div>
+  <div style="padding:16px 20px;flex:1;overflow-y:auto;">
+    <div class="part-cards" id="part-select-cards"></div>
+  </div>
+</div>
+
+<!-- MOCK SELECT -->
+<div id="screen-mock-select" class="screen">
+  <div class="hdr">
+    <button class="hdr-back" onclick="goScreen('screen-home')">← <span id="back2">返回</span></button>
+    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+    <div style="width:60px"></div>
+  </div>
+  <div style="padding:20px;">
+    <div class="psel-title" id="mock-title">模擬考試</div>
+    <div class="psel-sub" id="mock-sub">選擇一冊完整作答，共 50 題</div>
+    <div class="vol-cards" id="vol-select-cards"></div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="screen-quiz" class="screen">
+  <div class="hdr">
+    <button class="hdr-back" onclick="confirmBack()">✕</button>
+    <div id="quiz-hdr-title" style="color:#fff;font-size:13px;font-weight:600;"></div>
+    <div style="width:60px"></div>
+  </div>
+  <div class="quiz-progress"><div class="quiz-bar" id="quiz-bar"></div></div>
+  <div class="quiz-meta">
+    <div class="quiz-counter" id="quiz-counter">1 / 10</div>
+    <div class="quiz-score" id="quiz-score">✓ 0</div>
+  </div>
+  <div class="quiz-body" id="quiz-body">
+    <!-- dynamic content -->
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="screen-results" class="screen">
+  <div class="result-card">
+    <div class="result-emoji" id="res-emoji">🎉</div>
+    <div class="result-title" id="res-title">練習完成！</div>
+    <div class="result-score">
+      <span id="res-score">0</span>
+      <span class="result-denom" id="res-denom">/10</span>
+    </div>
+    <div class="result-bar-bg"><div class="result-bar" id="res-bar" style="width:0%"></div></div>
+    <div class="result-msg" id="res-msg"></div>
+    <div class="result-btns">
+      <button class="btn-primary" id="res-again-btn" onclick="restartSame()">再練一次</button>
+      <button class="btn-secondary" onclick="goScreen('screen-home')" id="res-home-btn">回主頁</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ────────────────────────────────────────────
+// CONFIG — replace with your Apps Script URL
+// ────────────────────────────────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec';
+
+// ── i18n ──
+const T = {
+  zh: {
+    welcome:'歡迎回來', loginSub:'請輸入您的報名資料登入',
+    loginBtn:'登入', loginErr:'驗證失敗，請確認護照號碼與生日',
+    lblNat:'國籍', lblPass:'護照號碼', lblDob:'出生年月日',
+    statDone:'已練習', statAcc:'正確率',
+    sec1:'選擇練習模式', sec2:'快速練習',
+    mode1t:'練習模式', mode1d:'選擇部分，針對弱點加強練習',
+    mode2t:'模擬考試', mode2d:'完整 50 題，體驗真實考試',
+    back:'返回', pselTitle:'練習模式', pselSub:'選擇你想練習的部分，五冊混合出題',
+    mockTitle:'模擬考試', mockSub:'選擇一冊完整作答，共 50 題',
+    chooseAns:'選擇答案', correct:'✓ 正確！', wrong:'✗ 答錯了',
+    corrAns:'正確答案：', next:'下一題 →', finish:'查看成績',
+    aiTitle:'💡 AI 解析', aiLoading:'分析中...', playAgain:'再聽一次',
+    resTitle:'練習完成！', resMockTitle:'模擬完成！',
+    resAgain:'再練一次', resHome:'回主頁',
+    resMsg: (s,t) => `答對 ${s} 題，共 ${t} 題`,
+    part1:'第一部分｜看圖回答', part1d:'看圖選出正確答案',
+    part2:'第二部分｜問答理解', part2d:'聽對話選出對應圖片',
+    part3:'第三部分｜對話理解', part3d:'聽對話後回答問題',
+    part4:'第四部分｜對話', part4d:'聽對話選出正確答案',
+    vol:'第', volEnd:'冊', questions:'題',
+    audioHint:'點播放收聽題目', playing:'播放中...',
+  },
+  id: {
+    welcome:'Selamat datang', loginSub:'Masukkan data pendaftaran Anda',
+    loginBtn:'Masuk', loginErr:'Verifikasi gagal, periksa nomor paspor dan tanggal lahir',
+    lblNat:'Kewarganegaraan', lblPass:'Nomor Paspor', lblDob:'Tanggal Lahir',
+    statDone:'Selesai', statAcc:'Akurasi',
+    sec1:'Pilih Mode Latihan', sec2:'Latihan Cepat',
+    mode1t:'Mode Latihan', mode1d:'Pilih bagian untuk memperkuat kelemahan',
+    mode2t:'Ujian Simulasi', mode2d:'50 soal lengkap, rasakan ujian nyata',
+    back:'Kembali', pselTitle:'Mode Latihan', pselSub:'Pilih bagian, soal dari 5 buku dicampur',
+    mockTitle:'Ujian Simulasi', mockSub:'Pilih satu buku, 50 soal lengkap',
+    chooseAns:'Pilih Jawaban', correct:'✓ Benar!', wrong:'✗ Salah',
+    corrAns:'Jawaban benar:', next:'Soal Berikutnya →', finish:'Lihat Hasil',
+    aiTitle:'💡 Penjelasan AI', aiLoading:'Menganalisis...', playAgain:'Putar ulang',
+    resTitle:'Latihan Selesai!', resMockTitle:'Simulasi Selesai!',
+    resAgain:'Ulangi Latihan', resHome:'Kembali ke Beranda',
+    resMsg: (s,t) => `Benar ${s} dari ${t} soal`,
+    part1:'Bagian 1｜Deskripsi Gambar', part1d:'Pilih jawaban berdasarkan gambar',
+    part2:'Bagian 2｜Dialog Satu Putaran', part2d:'Pilih gambar yang sesuai dialog',
+    part3:'Bagian 3｜Dialog Multi-putaran', part3d:'Jawab pertanyaan setelah mendengar dialog',
+    part4:'Bagian 4｜Dialog', part4d:'Pilih jawaban yang tepat',
+    vol:'Buku ', volEnd:'', questions:' Soal',
+    audioHint:'Klik putar untuk mendengarkan', playing:'Sedang diputar...',
+  },
+  vi: {
+    welcome:'Chào mừng trở lại', loginSub:'Nhập thông tin đăng ký của bạn',
+    loginBtn:'Đăng nhập', loginErr:'Xác minh thất bại, kiểm tra số hộ chiếu và ngày sinh',
+    lblNat:'Quốc tịch', lblPass:'Số hộ chiếu', lblDob:'Ngày sinh',
+    statDone:'Đã làm', statAcc:'Độ chính xác',
+    sec1:'Chọn chế độ luyện tập', sec2:'Luyện tập nhanh',
+    mode1t:'Chế độ luyện tập', mode1d:'Chọn phần để tập trung luyện điểm yếu',
+    mode2t:'Thi thử', mode2d:'50 câu hoàn chỉnh, trải nghiệm thi thật',
+    back:'Quay lại', pselTitle:'Chế độ luyện tập', pselSub:'Chọn phần, câu hỏi từ 5 tập được trộn',
+    mockTitle:'Thi thử', mockSub:'Chọn một tập, 50 câu hỏi đầy đủ',
+    chooseAns:'Chọn câu trả lời', correct:'✓ Đúng!', wrong:'✗ Sai',
+    corrAns:'Đáp án đúng:', next:'Câu tiếp theo →', finish:'Xem kết quả',
+    aiTitle:'💡 Phân tích AI', aiLoading:'Đang phân tích...', playAgain:'Nghe lại',
+    resTitle:'Hoàn thành luyện tập!', resMockTitle:'Hoàn thành thi thử!',
+    resAgain:'Luyện lại', resHome:'Về trang chủ',
+    resMsg: (s,t) => `Đúng ${s} / ${t} câu`,
+    part1:'Phần 1｜Mô tả hình ảnh', part1d:'Chọn câu trả lời dựa trên hình ảnh',
+    part2:'Phần 2｜Hội thoại một lượt', part2d:'Chọn hình phù hợp với hội thoại',
+    part3:'Phần 3｜Hội thoại nhiều lượt', part3d:'Trả lời câu hỏi sau khi nghe hội thoại',
+    part4:'Phần 4｜Hội thoại', part4d:'Chọn câu trả lời đúng',
+    vol:'Tập ', volEnd:'', questions:' câu',
+    audioHint:'Nhấn phát để nghe', playing:'Đang phát...',
+  },
+  tl: {
+    welcome:'Maligayang pagbabalik', loginSub:'Ilagay ang iyong impormasyon sa pagpaparehistro',
+    loginBtn:'Mag-login', loginErr:'Nabigo ang pagpapatunay, suriin ang pasaporte at petsa ng kapanganakan',
+    lblNat:'Nasyonalidad', lblPass:'Numero ng Pasaporte', lblDob:'Petsa ng Kapanganakan',
+    statDone:'Natapos', statAcc:'Katumpakan',
+    sec1:'Piliin ang Mode', sec2:'Mabilis na Pagsasanay',
+    mode1t:'Mode ng Pagsasanay', mode1d:'Pumili ng bahagi para palakasin ang mahina',
+    mode2t:'Simulasyon ng Pagsusulit', mode2d:'50 tanong, maranasan ang tunay na pagsusulit',
+    back:'Bumalik', pselTitle:'Mode ng Pagsasanay', pselSub:'Pumili ng bahagi, pinagsaming tanong mula sa 5 libro',
+    mockTitle:'Simulasyon', mockSub:'Pumili ng isang libro, 50 tanong',
+    chooseAns:'Pumili ng Sagot', correct:'✓ Tama!', wrong:'✗ Mali',
+    corrAns:'Tamang sagot:', next:'Susunod →', finish:'Tingnan ang Resulta',
+    aiTitle:'💡 Paliwanag ng AI', aiLoading:'Sinusuri...', playAgain:'Pakinggan muli',
+    resTitle:'Tapos na ang Pagsasanay!', resMockTitle:'Tapos na ang Simulasyon!',
+    resAgain:'Ulitin', resHome:'Umuwi',
+    resMsg: (s,t) => `Tama ang ${s} sa ${t} na tanong`,
+    part1:'Bahagi 1｜Paglalarawan ng Larawan', part1d:'Piliin ang sagot batay sa larawan',
+    part2:'Bahagi 2｜Isang Palitang-salita', part2d:'Piliin ang larawang angkop sa diyalogo',
+    part3:'Bahagi 3｜Maraming Palitang-salita', part3d:'Sagutin ang tanong pagkatapos makinig',
+    part4:'Bahagi 4｜Diyalogo', part4d:'Piliin ang tamang sagot',
+    vol:'Libro ', volEnd:'', questions:' tanong',
+    audioHint:'I-click ang play para makinig', playing:'Nagpe-play...',
+  },
+  th: {
+    welcome:'ยินดีต้อนรับกลับ', loginSub:'กรอกข้อมูลการลงทะเบียนของคุณ',
+    loginBtn:'เข้าสู่ระบบ', loginErr:'การยืนยันล้มเหลว ตรวจสอบหมายเลขหนังสือเดินทางและวันเกิด',
+    lblNat:'สัญชาติ', lblPass:'หมายเลขหนังสือเดินทาง', lblDob:'วันเกิด',
+    statDone:'ทำแล้ว', statAcc:'ความแม่นยำ',
+    sec1:'เลือกโหมดการฝึก', sec2:'ฝึกด่วน',
+    mode1t:'โหมดฝึกฝน', mode1d:'เลือกส่วนเพื่อเสริมจุดอ่อน',
+    mode2t:'ข้อสอบจำลอง', mode2d:'50 ข้อครบ สัมผัสประสบการณ์สอบจริง',
+    back:'กลับ', pselTitle:'โหมดฝึกฝน', pselSub:'เลือกส่วน ข้อสอบจาก 5 เล่มผสมกัน',
+    mockTitle:'ข้อสอบจำลอง', mockSub:'เลือกหนึ่งเล่ม 50 ข้อครบ',
+    chooseAns:'เลือกคำตอบ', correct:'✓ ถูก!', wrong:'✗ ผิด',
+    corrAns:'คำตอบที่ถูก:', next:'ข้อถัดไป →', finish:'ดูผลลัพธ์',
+    aiTitle:'💡 การวิเคราะห์ AI', aiLoading:'กำลังวิเคราะห์...', playAgain:'เล่นอีกครั้ง',
+    resTitle:'เสร็จสิ้นการฝึก!', resMockTitle:'เสร็จสิ้นการสอบ!',
+    resAgain:'ฝึกอีกครั้ง', resHome:'กลับหน้าหลัก',
+    resMsg: (s,t) => `ตอบถูก ${s} จาก ${t} ข้อ`,
+    part1:'ส่วนที่ 1｜บรรยายภาพ', part1d:'เลือกคำตอบจากภาพ',
+    part2:'ส่วนที่ 2｜บทสนทนาหนึ่งรอบ', part2d:'เลือกภาพที่เหมาะสมกับบทสนทนา',
+    part3:'ส่วนที่ 3｜บทสนทนาหลายรอบ', part3d:'ตอบคำถามหลังฟังบทสนทนา',
+    part4:'ส่วนที่ 4｜บทสนทนา', part4d:'เลือกคำตอบที่ถูกต้อง',
+    vol:'เล่ม ', volEnd:'', questions:' ข้อ',
+    audioHint:'คลิกเล่นเพื่อฟัง', playing:'กำลังเล่น...',
+  },
+};
+
+// ── State ──
+let currentLang = 'zh';
+let currentUser = null;
+let quizQuestions = [];
+let currentIdx = 0;
+let score = 0;
+let answered = false;
+let currentAudio = null;
+let quizMode = ''; // 'practice' or 'mock'
+let currentPart = '';
+let currentVol = 0;
+let lastSession = null;
+let userStats = { done: 0, correct: 0 };
+
+// ── Load questions DB ──
+let QDB = [];
+fetch('questions_db.json').then(r=>r.json()).then(d=>{
+  QDB = d;
+  document.getElementById('loading').style.display = 'none';
+  showScreen('screen-login');
+  // Check saved session
+  const saved = localStorage.getItem('tocfl_user');
+  if (saved) {
+    currentUser = JSON.parse(saved);
+    currentLang = currentUser.lang || 'zh';
+    loadStats();
+    showHome();
+  }
+});
+
+// ── Utility ──
+function t(key) {
+  return T[currentLang] && T[currentLang][key] !== undefined ? T[currentLang][key] : (T['zh'][key] || key);
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function goScreen(id) { showScreen(id); }
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === lang || b.textContent === lang.toUpperCase() ||
+      (lang==='zh' && b.textContent==='中'));
+  });
+  if (currentUser) { currentUser.lang = lang; localStorage.setItem('tocfl_user', JSON.stringify(currentUser)); }
+  updateUI();
+}
+
+function updateUI() {
+  // Login
+  document.getElementById('login-sub').textContent = t('loginSub');
+  document.getElementById('login-btn-text').textContent = t('loginBtn');
+  document.getElementById('lbl-nationality').textContent = t('lblNat');
+  document.getElementById('lbl-passport').textContent = t('lblPass');
+  document.getElementById('lbl-dob').textContent = t('lblDob');
+  // Home
+  document.getElementById('home-welcome').textContent = t('welcome');
+  document.getElementById('stat-done-lbl').textContent = t('statDone');
+  document.getElementById('stat-acc-lbl').textContent = t('statAcc');
+  document.getElementById('home-sec1').textContent = t('sec1');
+  document.getElementById('home-sec2').textContent = t('sec2');
+  document.getElementById('mode1-title').textContent = t('mode1t');
+  document.getElementById('mode1-desc').textContent = t('mode1d');
+  document.getElementById('mode2-title').textContent = t('mode2t');
+  document.getElementById('mode2-desc').textContent = t('mode2d');
+  // Practice select
+  document.getElementById('psel-title').textContent = t('pselTitle');
+  document.getElementById('psel-sub').textContent = t('pselSub');
+  document.getElementById('mock-title').textContent = t('mockTitle');
+  document.getElementById('mock-sub').textContent = t('mockSub');
+  buildPartCards();
+  buildVolCards();
+  buildQuickParts();
+}
+
+// ── Login ──
+async function doLogin() {
+  const nat = document.getElementById('inp-nationality').value;
+  const pass = document.getElementById('inp-passport').value.trim().toUpperCase();
+  const dob = document.getElementById('inp-dob').value;
+  const errEl = document.getElementById('login-error');
+  const btn = document.getElementById('login-btn');
+
+  if (!nat || !pass || !dob) {
+    errEl.textContent = '請填寫所有欄位 / Please fill all fields';
+    errEl.style.display = 'block'; return;
+  }
+
+  btn.disabled = true;
+  document.getElementById('login-btn-text').textContent = '驗證中...';
+  errEl.style.display = 'none';
+
+  try {
+    const resp = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'login', passport: pass, dob, nationality: nat }),
+    });
+    const data = await resp.json();
+
+    if (data.success) {
+      const langMap = { ID:'id', VN:'vi', PH:'tl', TH:'th' };
+      currentLang = langMap[nat] || 'zh';
+      currentUser = { passport: pass, dob, nationality: nat, name: data.name || pass, lang: currentLang };
+      localStorage.setItem('tocfl_user', JSON.stringify(currentUser));
+      loadStats();
+      showHome();
+    } else {
+      errEl.textContent = t('loginErr');
+      errEl.style.display = 'block';
+    }
+  } catch(e) {
+    // DEV MODE: allow any login if Apps Script not configured
+    if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec') {
+      const langMap = { ID:'id', VN:'vi', PH:'tl', TH:'th' };
+      currentLang = langMap[nat] || 'zh';
+      currentUser = { passport: pass, dob, nationality: nat, name: pass, lang: currentLang };
+      localStorage.setItem('tocfl_user', JSON.stringify(currentUser));
+      loadStats();
+      showHome();
+    } else {
+      errEl.textContent = '連線失敗，請稍後再試';
+      errEl.style.display = 'block';
+    }
+  }
+  btn.disabled = false;
+  document.getElementById('login-btn-text').textContent = t('loginBtn');
+}
+
+function loadStats() {
+  const saved = localStorage.getItem(`tocfl_stats_${currentUser?.passport}`);
+  if (saved) userStats = JSON.parse(saved);
+}
+function saveStats() {
+  localStorage.setItem(`tocfl_stats_${currentUser?.passport}`, JSON.stringify(userStats));
+}
+
+function showHome() {
+  document.getElementById('home-name').textContent = currentUser?.name || '—';
+  document.getElementById('stat-done').textContent = userStats.done;
+  const acc = userStats.done > 0 ? Math.round(userStats.correct/userStats.done*100)+'%' : '—';
+  document.getElementById('stat-acc').textContent = acc;
+  updateUI();
+  showScreen('screen-home');
+}
+
+// ── Part / Vol cards ──
+const PARTS = [
+  { key:'part1', icon:'🖼️' },
+  { key:'part2', icon:'💬' },
+  { key:'part3', icon:'🗣️' },
+  { key:'part4', icon:'📝' },
+];
+
+function buildPartCards() {
+  const countPerPart = {};
+  PARTS.forEach(p => { countPerPart[p.key] = QDB.filter(q => q.part === p.key).length; });
+
+  ['part-select-cards','quick-parts'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = '';
+    PARTS.forEach(p => {
+      const div = document.createElement('div');
+      div.className = 'part-card';
+      div.onclick = () => startPractice(p.key);
+      div.innerHTML = `
+        <div class="part-badge">${p.icon}</div>
+        <div class="part-info">
+          <div class="part-name">${t(p.key)}</div>
+          <div class="part-meta">${countPerPart[p.key]}${t('questions')}</div>
+        </div>
+        <div style="color:var(--text-lt)">›</div>`;
+      el.appendChild(div);
+    });
+  });
+}
+
+function buildVolCards() {
+  const el = document.getElementById('vol-select-cards');
+  if (!el) return;
+  el.innerHTML = '';
+  for (let v = 1; v <= 5; v++) {
+    const div = document.createElement('div');
+    div.className = 'vol-card';
+    div.onclick = () => startMock(v);
+    div.innerHTML = `
+      <div class="vol-num">${v}</div>
+      <div class="vol-info">
+        <div class="vol-name">${t('vol')}${v}${t('volEnd')}</div>
+        <div class="vol-meta">50${t('questions')}</div>
+      </div>
+      <div style="color:var(--text-lt)">›</div>`;
+    el.appendChild(div);
+  }
+}
+
+function buildQuickParts() { buildPartCards(); }
+
+// ── Start Quiz ──
+function startPractice(part) {
+  quizMode = 'practice';
+  currentPart = part;
+  const pool = QDB.filter(q => q.part === part);
+  quizQuestions = shuffle(pool).slice(0, Math.min(10, pool.length));
+  currentIdx = 0; score = 0;
+  lastSession = { mode: 'practice', part };
+  document.getElementById('quiz-hdr-title').textContent = t(part);
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+function startMock(vol) {
+  quizMode = 'mock';
+  currentVol = vol;
+  quizQuestions = QDB.filter(q => q.vol === vol).sort((a,b) => a.qnum - b.qnum);
+  currentIdx = 0; score = 0;
+  lastSession = { mode: 'mock', vol };
+  document.getElementById('quiz-hdr-title').textContent = `${t('vol')}${vol}${t('volEnd')}`;
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+// ── Render Question ──
+function renderQuestion() {
+  answered = false;
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+
+  const q = quizQuestions[currentIdx];
+  const total = quizQuestions.length;
+
+  // Progress
+  document.getElementById('quiz-bar').style.width = (currentIdx/total*100)+'%';
+  document.getElementById('quiz-counter').textContent = `${currentIdx+1} / ${total}`;
+  document.getElementById('quiz-score').textContent = `✓ ${score}`;
+
+  // Build body
+  const body = document.getElementById('quiz-body');
+  body.innerHTML = '';
+
+  // Image (Part 1,2,3)
+  if (q.image) {
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'img-card';
+    imgWrap.innerHTML = `<img src="${q.image}" alt="題目圖片" loading="lazy">`;
+    body.appendChild(imgWrap);
+  }
+
+  // Audio
+  const audioCard = document.createElement('div');
+  audioCard.className = 'audio-card';
+  audioCard.innerHTML = `
+    <button class="play-btn" id="play-btn" onclick="playAudio()">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <div class="audio-info">
+      <div class="audio-label" id="audio-label">${t('audioHint')}</div>
+      <div class="audio-status" id="audio-status">${t('playing')}</div>
+    </div>`;
+  body.appendChild(audioCard);
+
+  // Options
+  const optWrap = document.createElement('div');
+  optWrap.className = 'options-wrap';
+  optWrap.innerHTML = `<div class="opt-label">${t('chooseAns')}</div>`;
+
+  const letters = q.part === 'part4' ? ['A','B','C','D'] : ['A','B','C'];
+  letters.forEach(letter => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.id = `opt-${letter}`;
+    let label = '';
+    if (q.part === 'part4' && q.options) {
+      label = q.options[letter] || '';
+    }
+    btn.innerHTML = `<span class="opt-letter">${letter}</span><span>${label}</span>`;
+    btn.onclick = () => selectAnswer(letter, q.answer, q);
+    optWrap.appendChild(btn);
+  });
+  body.appendChild(optWrap);
+
+  // Feedback (hidden)
+  const fb = document.createElement('div');
+  fb.className = 'feedback'; fb.id = 'feedback';
+  body.appendChild(fb);
+
+  // AI explanation (hidden)
+  const ai = document.createElement('div');
+  ai.className = 'ai-explain'; ai.id = 'ai-explain';
+  body.appendChild(ai);
+
+  // Next button
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'next-btn'; nextBtn.id = 'next-btn';
+  nextBtn.textContent = currentIdx === total-1 ? t('finish') : t('next');
+  nextBtn.onclick = nextQuestion;
+  body.appendChild(nextBtn);
+
+  // Auto-play audio
+  setTimeout(() => playAudio(), 400);
+}
+
+function playAudio() {
+  const q = quizQuestions[currentIdx];
+  if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+  currentAudio = new Audio(q.audio);
+  const statusEl = document.getElementById('audio-status');
+  const labelEl = document.getElementById('audio-label');
+  const playBtn = document.getElementById('play-btn');
+
+  if (statusEl) { statusEl.style.display = 'block'; statusEl.textContent = t('playing'); }
+  if (labelEl) labelEl.style.display = 'none';
+  if (playBtn) playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+
+  currentAudio.play().catch(()=>{});
+  currentAudio.onended = () => {
+    if (statusEl) { statusEl.style.display = 'none'; }
+    if (labelEl) { labelEl.style.display = 'block'; labelEl.textContent = t('playAgain'); }
+    if (playBtn) playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>';
+  };
+}
+
+function selectAnswer(selected, correct, q) {
+  if (answered) return;
+  answered = true;
+  if (currentAudio) { currentAudio.pause(); }
+
+  const isCorrect = selected === correct;
+  if (isCorrect) score++;
+
+  // Mark options
+  const letters = q.part === 'part4' ? ['A','B','C','D'] : ['A','B','C'];
+  letters.forEach(letter => {
+    const btn = document.getElementById(`opt-${letter}`);
+    if (!btn) return;
+    btn.disabled = true;
+    if (letter === correct && letter === selected) btn.classList.add('correct');
+    else if (letter === selected && !isCorrect) btn.classList.add('wrong');
+    else if (letter === correct) btn.classList.add('reveal');
+  });
+
+  // Feedback
+  const fb = document.getElementById('feedback');
+  fb.style.display = 'block';
+  fb.className = `feedback ${isCorrect ? 'correct-fb' : 'wrong-fb'}`;
+  fb.innerHTML = `<div class="feedback-title">${isCorrect ? t('correct') : t('wrong')}</div>
+    ${!isCorrect ? `<div>${t('corrAns')} (${correct})</div>` : ''}`;
+
+  // Update score display
+  document.getElementById('quiz-score').textContent = `✓ ${score}`;
+
+  // AI explanation for wrong answers
+  if (!isCorrect) getAIExplanation(q, selected, correct);
+
+  // Show next
+  document.getElementById('next-btn').style.display = 'block';
+
+  // Log to Apps Script
+  logAnswer(q, selected, isCorrect);
+}
+
+async function getAIExplanation(q, selected, correct) {
+  const aiEl = document.getElementById('ai-explain');
+  aiEl.style.display = 'block';
+  aiEl.innerHTML = `<div class="ai-explain-title">${t('aiTitle')}</div>
+    <div class="ai-loading">${t('aiLoading')}</div>`;
+
+  // Build context for AI
+  const langNames = { zh:'繁體中文', id:'Bahasa Indonesia', vi:'Tiếng Việt', tl:'Filipino', th:'ภาษาไทย' };
+  const partNames = { part1:'第一部分 看圖回答', part2:'第二部分 問答理解', part3:'第三部分 對話理解', part4:'第四部分 對話' };
+  let optionsText = '';
+  if (q.part === 'part4' && q.options) {
+    Object.entries(q.options).forEach(([k,v]) => { optionsText += `(${k}) ${v}\n`; });
+  } else {
+    optionsText = '這是一道圖片題，考生看圖選答案';
+  }
+
+  const prompt = `你是 TOCFL 華語文聽力測驗的解析老師。
+考生答題情況：
+- 題號：第 ${q.qnum} 題（${partNames[q.part]}）
+- 考生選了：(${selected})，正確答案是：(${correct})
+${q.part === 'part4' ? `選項內容：\n${optionsText}` : '這是圖片選擇題'}
+
+請用 ${langNames[currentLang]} 給考生一個簡短、友善的解析（2-3句話），說明為什麼正確答案是 (${correct})，幫助考生理解。不要太長，要具體有幫助。`;
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 300,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await resp.json();
+    const explanation = data.content?.[0]?.text || '';
+    aiEl.innerHTML = `<div class="ai-explain-title">${t('aiTitle')}</div>${explanation}`;
+  } catch(e) {
+    aiEl.style.display = 'none';
+  }
+}
+
+async function logAnswer(q, selected, isCorrect) {
+  userStats.done++;
+  if (isCorrect) userStats.correct++;
+  saveStats();
+
+  if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec') return;
+  try {
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'log',
+        passport: currentUser?.passport,
+        vol: q.vol, qnum: q.qnum, part: q.part,
+        selected, correct: q.answer,
+        isCorrect, mode: quizMode,
+        timestamp: new Date().toISOString()
+      })
+    });
+  } catch(e) {}
+}
+
+function nextQuestion() {
+  currentIdx++;
+  if (currentIdx >= quizQuestions.length) {
+    showResults();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResults() {
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  const total = quizQuestions.length;
+  const pct = Math.round(score/total*100);
+
+  document.getElementById('res-emoji').textContent = pct>=80?'🏆':pct>=60?'👍':pct>=40?'📚':'💪';
+  document.getElementById('res-title').textContent = quizMode==='mock' ? t('resMockTitle') : t('resTitle');
+  document.getElementById('res-score').textContent = score;
+  document.getElementById('res-denom').textContent = `/${total}`;
+  document.getElementById('res-msg').textContent = t('resMsg')(score, total);
+  document.getElementById('res-again-btn').textContent = t('resAgain');
+  document.getElementById('res-home-btn').textContent = t('resHome');
+
+  showScreen('screen-results');
+  setTimeout(() => {
+    document.getElementById('res-bar').style.width = pct+'%';
+  }, 100);
+}
+
+function restartSame() {
+  if (!lastSession) { showScreen('screen-home'); return; }
+  if (lastSession.mode === 'practice') startPractice(lastSession.part);
+  else startMock(lastSession.vol);
+}
+
+function confirmBack() {
+  if (confirm('確定要離開？目前進度將不會儲存')) {
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    showScreen('screen-home');
+  }
+}
+</script>
+</body>
+</html>
