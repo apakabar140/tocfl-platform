@@ -409,22 +409,23 @@ body {
 <!-- LOGIN -->
 <div id="screen-login" class="screen">
   <div style="background:var(--primary);padding:20px 24px;">
-    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+    <div class="hdr-logo">One-Forty <span>× TOCFL</span></div>
   </div>
   <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px;">
   <div class="login-card">
     <div class="login-brand">
       <div class="brand-icon">🎧</div>
-      <h1>TOCFL 聽力練習</h1>
-      <p id="login-sub">請輸入您的報名資料登入</p>
+      <h1>TOCFL 聽力練習<br><span style="font-size:16px;font-weight:400;font-family:'Noto Sans TC',sans-serif;">Listening Practice</span></h1>
+      <p id="login-sub">請輸入您的報名資料登入<br>Please enter your registration details</p>
     </div>
     <div class="form-group">
-      <label id="lbl-nationality">國籍</label>
+      <label id="lbl-nationality">國籍 / Nationality</label>
       <select id="inp-nationality">
-        <option value="">-- 請選擇 --</option>
+        <option value="">-- 請選擇 / Please select --</option>
+        <option value="TW">🇹🇼 台灣 / Taiwan</option>
         <option value="ID">🇮🇩 Indonesia</option>
-        <option value="VN">🇻🇳 Việt Nam</option>
         <option value="PH">🇵🇭 Philippines</option>
+        <option value="VN">🇻🇳 Việt Nam</option>
         <option value="TH">🇹🇭 ประเทศไทย</option>
       </select>
     </div>
@@ -433,7 +434,7 @@ body {
       <input type="text" id="inp-passport" placeholder="e.g. A1234567" autocomplete="off">
     </div>
     <div class="form-group">
-      <label id="lbl-dob">出生年月日 / Date of Birth</label>
+      <label id="lbl-dob">出生年月日 / Date of Birth (YYYYMMDD)</label>
       <input type="date" id="inp-dob">
     </div>
     <button class="login-btn" id="login-btn" onclick="doLogin()">
@@ -447,13 +448,16 @@ body {
 <!-- HOME -->
 <div id="screen-home" class="screen">
   <div class="hdr">
-    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
-    <div class="hdr-lang">
-      <button class="lang-btn active" onclick="setLang('zh')">中</button>
-      <button class="lang-btn" onclick="setLang('id')">ID</button>
-      <button class="lang-btn" onclick="setLang('vi')">VI</button>
-      <button class="lang-btn" onclick="setLang('tl')">TL</button>
-      <button class="lang-btn" onclick="setLang('th')">TH</button>
+    <div class="hdr-logo">One-Forty <span>× TOCFL</span></div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <div class="hdr-lang">
+        <button class="lang-btn active" onclick="setLang('zh')">TW</button>
+        <button class="lang-btn" onclick="setLang('id')">ID</button>
+        <button class="lang-btn" onclick="setLang('tl')">PH</button>
+        <button class="lang-btn" onclick="setLang('vi')">VN</button>
+        <button class="lang-btn" onclick="setLang('th')">TH</button>
+      </div>
+      <button class="lang-btn" onclick="doLogout()" style="background:rgba(255,255,255,.1);padding:4px 10px;">登出</button>
     </div>
   </div>
   <div class="home-hero">
@@ -484,8 +488,8 @@ body {
         <div class="mode-arrow">›</div>
       </div>
     </div>
-    <div class="section-label" id="home-sec2">快速練習</div>
-    <div class="part-cards" id="quick-parts"></div>
+    <div class="section-label" id="home-sec2">練習紀錄</div>
+    <div id="history-section" style="display:flex;flex-direction:column;gap:10px;"></div>
   </div>
 </div>
 
@@ -493,7 +497,7 @@ body {
 <div id="screen-practice-select" class="screen">
   <div class="hdr">
     <button class="hdr-back" onclick="goScreen('screen-home')">← <span id="back1">返回</span></button>
-    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+    <div class="hdr-logo">One-Forty <span>× TOCFL</span></div>
     <div style="width:60px"></div>
   </div>
   <div style="padding:20px 20px 0;">
@@ -509,7 +513,7 @@ body {
 <div id="screen-mock-select" class="screen">
   <div class="hdr">
     <button class="hdr-back" onclick="goScreen('screen-home')">← <span id="back2">返回</span></button>
-    <div class="hdr-logo">one-forty <span>× TOCFL</span></div>
+    <div class="hdr-logo">One-Forty <span>× TOCFL</span></div>
     <div style="width:60px"></div>
   </div>
   <div style="padding:20px;">
@@ -558,7 +562,7 @@ body {
 // ────────────────────────────────────────────
 // CONFIG — replace with your Apps Script URL
 // ────────────────────────────────────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec';
+const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
 
 // ── i18n ──
 const T = {
@@ -567,7 +571,7 @@ const T = {
     loginBtn:'登入', loginErr:'驗證失敗，請確認護照號碼與生日',
     lblNat:'國籍', lblPass:'護照號碼', lblDob:'出生年月日',
     statDone:'已練習', statAcc:'正確率',
-    sec1:'選擇練習模式', sec2:'快速練習',
+    sec1:'選擇練習模式', sec2:'練習紀錄',
     mode1t:'練習模式', mode1d:'選擇部分，針對弱點加強練習',
     mode2t:'模擬考試', mode2d:'完整 50 題，體驗真實考試',
     back:'返回', pselTitle:'練習模式', pselSub:'選擇你想練習的部分，五冊混合出題',
@@ -590,7 +594,7 @@ const T = {
     loginBtn:'Masuk', loginErr:'Verifikasi gagal, periksa nomor paspor dan tanggal lahir',
     lblNat:'Kewarganegaraan', lblPass:'Nomor Paspor', lblDob:'Tanggal Lahir',
     statDone:'Selesai', statAcc:'Akurasi',
-    sec1:'Pilih Mode Latihan', sec2:'Latihan Cepat',
+    sec1:'Pilih Mode Latihan', sec2:'Riwayat Latihan',
     mode1t:'Mode Latihan', mode1d:'Pilih bagian untuk memperkuat kelemahan',
     mode2t:'Ujian Simulasi', mode2d:'50 soal lengkap, rasakan ujian nyata',
     back:'Kembali', pselTitle:'Mode Latihan', pselSub:'Pilih bagian, soal dari 5 buku dicampur',
@@ -613,7 +617,7 @@ const T = {
     loginBtn:'Đăng nhập', loginErr:'Xác minh thất bại, kiểm tra số hộ chiếu và ngày sinh',
     lblNat:'Quốc tịch', lblPass:'Số hộ chiếu', lblDob:'Ngày sinh',
     statDone:'Đã làm', statAcc:'Độ chính xác',
-    sec1:'Chọn chế độ luyện tập', sec2:'Luyện tập nhanh',
+    sec1:'Chọn chế độ luyện tập', sec2:'Lịch sử luyện tập',
     mode1t:'Chế độ luyện tập', mode1d:'Chọn phần để tập trung luyện điểm yếu',
     mode2t:'Thi thử', mode2d:'50 câu hoàn chỉnh, trải nghiệm thi thật',
     back:'Quay lại', pselTitle:'Chế độ luyện tập', pselSub:'Chọn phần, câu hỏi từ 5 tập được trộn',
@@ -636,7 +640,7 @@ const T = {
     loginBtn:'Mag-login', loginErr:'Nabigo ang pagpapatunay, suriin ang pasaporte at petsa ng kapanganakan',
     lblNat:'Nasyonalidad', lblPass:'Numero ng Pasaporte', lblDob:'Petsa ng Kapanganakan',
     statDone:'Natapos', statAcc:'Katumpakan',
-    sec1:'Piliin ang Mode', sec2:'Mabilis na Pagsasanay',
+    sec1:'Piliin ang Mode', sec2:'Kasaysayan ng Pagsasanay',
     mode1t:'Mode ng Pagsasanay', mode1d:'Pumili ng bahagi para palakasin ang mahina',
     mode2t:'Simulasyon ng Pagsusulit', mode2d:'50 tanong, maranasan ang tunay na pagsusulit',
     back:'Bumalik', pselTitle:'Mode ng Pagsasanay', pselSub:'Pumili ng bahagi, pinagsaming tanong mula sa 5 libro',
@@ -659,7 +663,7 @@ const T = {
     loginBtn:'เข้าสู่ระบบ', loginErr:'การยืนยันล้มเหลว ตรวจสอบหมายเลขหนังสือเดินทางและวันเกิด',
     lblNat:'สัญชาติ', lblPass:'หมายเลขหนังสือเดินทาง', lblDob:'วันเกิด',
     statDone:'ทำแล้ว', statAcc:'ความแม่นยำ',
-    sec1:'เลือกโหมดการฝึก', sec2:'ฝึกด่วน',
+    sec1:'เลือกโหมดการฝึก', sec2:'ประวัติการฝึก',
     mode1t:'โหมดฝึกฝน', mode1d:'เลือกส่วนเพื่อเสริมจุดอ่อน',
     mode2t:'ข้อสอบจำลอง', mode2d:'50 ข้อครบ สัมผัสประสบการณ์สอบจริง',
     back:'กลับ', pselTitle:'โหมดฝึกฝน', pselSub:'เลือกส่วน ข้อสอบจาก 5 เล่มผสมกัน',
@@ -724,8 +728,14 @@ function goScreen(id) { showScreen(id); }
 function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent === lang || b.textContent === lang.toUpperCase() ||
-      (lang==='zh' && b.textContent==='中'));
+    const txt = b.textContent.trim();
+    const isActive =
+      (lang === 'zh' && txt === 'TW') ||
+      (lang === 'id' && txt === 'ID') ||
+      (lang === 'tl' && txt === 'PH') ||
+      (lang === 'vi' && txt === 'VN') ||
+      (lang === 'th' && txt === 'TH');
+    b.classList.toggle('active', isActive);
   });
   if (currentUser) { currentUser.lang = lang; localStorage.setItem('tocfl_user', JSON.stringify(currentUser)); }
   updateUI();
@@ -755,7 +765,8 @@ function updateUI() {
   document.getElementById('mock-sub').textContent = t('mockSub');
   buildPartCards();
   buildVolCards();
-  buildQuickParts();
+  const histEl2 = document.getElementById('history-section');
+  if (histEl2) { histEl2.innerHTML = ''; buildHistorySection(); }
 }
 
 // ── Login ──
@@ -783,7 +794,7 @@ async function doLogin() {
     const data = await resp.json();
 
     if (data.success) {
-      const langMap = { ID:'id', VN:'vi', PH:'tl', TH:'th' };
+      const langMap = { TW:'zh', ID:'id', VN:'vi', PH:'tl', TH:'th' };
       currentLang = langMap[nat] || 'zh';
       currentUser = { passport: pass, dob, nationality: nat, name: data.name || pass, lang: currentLang };
       localStorage.setItem('tocfl_user', JSON.stringify(currentUser));
@@ -795,8 +806,8 @@ async function doLogin() {
     }
   } catch(e) {
     // DEV MODE: allow any login if Apps Script not configured
-    if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec') {
-      const langMap = { ID:'id', VN:'vi', PH:'tl', TH:'th' };
+    if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+      const langMap = { TW:'zh', ID:'id', VN:'vi', PH:'tl', TH:'th' };
       currentLang = langMap[nat] || 'zh';
       currentUser = { passport: pass, dob, nationality: nat, name: pass, lang: currentLang };
       localStorage.setItem('tocfl_user', JSON.stringify(currentUser));
@@ -809,6 +820,20 @@ async function doLogin() {
   }
   btn.disabled = false;
   document.getElementById('login-btn-text').textContent = t('loginBtn');
+}
+
+function doLogout() {
+  const confirmMsg = {
+    zh:'確定要登出嗎？', id:'Yakin ingin keluar?',
+    vi:'Bạn có chắc muốn đăng xuất?', tl:'Sigurado ka bang mag-logout?',
+    th:'แน่ใจว่าต้องการออกจากระบบ?'
+  };
+  if (!confirm(confirmMsg[currentLang] || '確定要登出嗎？')) return;
+  localStorage.removeItem('tocfl_user');
+  currentUser = null;
+  userStats = { done: 0, correct: 0 };
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  showScreen('screen-login');
 }
 
 function loadStats() {
@@ -825,6 +850,8 @@ function showHome() {
   const acc = userStats.done > 0 ? Math.round(userStats.correct/userStats.done*100)+'%' : '—';
   document.getElementById('stat-acc').textContent = acc;
   updateUI();
+  const histEl = document.getElementById('history-section');
+  if (histEl) { histEl.innerHTML = ''; buildHistorySection(); }
   showScreen('screen-home');
 }
 
@@ -879,7 +906,71 @@ function buildVolCards() {
   }
 }
 
-function buildQuickParts() { buildPartCards(); }
+function buildHistorySection() {
+  const el = document.getElementById('history-section');
+  if (!el) return;
+
+  const PART_ICONS = { part1:'🖼️', part2:'💬', part3:'🗣️', part4:'📝' };
+  const stats = getDetailedStats();
+
+  if (stats.total === 0) {
+    el.innerHTML = `<div style="background:var(--card);border-radius:14px;padding:20px;text-align:center;color:var(--text-lt);font-size:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+      ${currentLang==='id'?'Belum ada riwayat latihan':currentLang==='vi'?'Chưa có lịch sử luyện tập':currentLang==='tl'?'Wala pang kasaysayan':currentLang==='th'?'ยังไม่มีประวัติการฝึก':'尚無練習紀錄'}
+    </div>`;
+    return;
+  }
+
+  // Overall summary card
+  const pct = Math.round(stats.correct / stats.total * 100);
+  const summaryDiv = document.createElement('div');
+  summaryDiv.style.cssText = 'background:var(--card);border-radius:14px;padding:18px 20px;box-shadow:0 2px 12px rgba(0,0,0,.06);';
+  summaryDiv.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <div style="font-size:14px;font-weight:700;">${currentLang==='id'?'Total Latihan':currentLang==='vi'?'Tổng luyện tập':currentLang==='tl'?'Kabuuang Pagsasanay':currentLang==='th'?'รวมการฝึก':'總練習'}</div>
+      <div style="font-size:20px;font-weight:900;color:var(--primary);">${pct}%</div>
+    </div>
+    <div style="background:var(--border);border-radius:100px;height:8px;overflow:hidden;">
+      <div style="background:var(--primary);height:8px;border-radius:100px;width:${pct}%;transition:width 1s ease;"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--text-lt);">
+      <span>${stats.total} ${currentLang==='id'?'soal':currentLang==='vi'?'câu':currentLang==='tl'?'tanong':currentLang==='th'?'ข้อ':'題'}</span>
+      <span>${stats.correct} ✓</span>
+    </div>`;
+  el.appendChild(summaryDiv);
+
+  // Per-part breakdown
+  PARTS.forEach(p => {
+    const ps = stats.byPart[p.key];
+    if (!ps || ps.total === 0) return;
+    const ppct = Math.round(ps.correct / ps.total * 100);
+    const div = document.createElement('div');
+    div.style.cssText = 'background:var(--card);border-radius:14px;padding:14px 18px;box-shadow:0 2px 12px rgba(0,0,0,.06);display:flex;align-items:center;gap:12px;';
+    div.innerHTML = `
+      <div style="font-size:24px;">${PART_ICONS[p.key]}</div>
+      <div style="flex:1;">
+        <div style="font-size:13px;font-weight:600;margin-bottom:4px;">${t(p.key)}</div>
+        <div style="background:var(--border);border-radius:100px;height:5px;overflow:hidden;">
+          <div style="background:${ppct>=70?'var(--correct)':ppct>=40?'var(--primary)':'var(--wrong)'};height:5px;border-radius:100px;width:${ppct}%;"></div>
+        </div>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:${ppct>=70?'var(--correct)':ppct>=40?'var(--primary)':'var(--wrong)'};">${ppct}%</div>`;
+    el.appendChild(div);
+  });
+}
+
+function getDetailedStats() {
+  const key = `tocfl_stats_${currentUser?.passport}`;
+  const saved = localStorage.getItem(key);
+  if (!saved) return { total: 0, correct: 0, byPart: {} };
+  const base = JSON.parse(saved);
+
+  // Get per-part stats
+  const partKey = `tocfl_partstats_${currentUser?.passport}`;
+  const partSaved = localStorage.getItem(partKey);
+  const byPart = partSaved ? JSON.parse(partSaved) : {};
+
+  return { total: base.done || 0, correct: base.correct || 0, byPart };
+}
 
 // ── Start Quiz ──
 function startPractice(part) {
@@ -1099,7 +1190,16 @@ async function logAnswer(q, selected, isCorrect) {
   if (isCorrect) userStats.correct++;
   saveStats();
 
-  if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec') return;
+  // Save per-part stats
+  const partKey = `tocfl_partstats_${currentUser?.passport}`;
+  const partSaved = localStorage.getItem(partKey);
+  const partStats = partSaved ? JSON.parse(partSaved) : {};
+  if (!partStats[q.part]) partStats[q.part] = { total: 0, correct: 0 };
+  partStats[q.part].total++;
+  if (isCorrect) partStats[q.part].correct++;
+  localStorage.setItem(partKey, JSON.stringify(partStats));
+
+  if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
   try {
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
