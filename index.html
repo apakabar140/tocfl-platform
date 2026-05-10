@@ -806,18 +806,8 @@ async function doLogin() {
       errEl.style.display = 'block';
     }
   } catch(e) {
-    // DEV MODE: allow any login if Apps Script not configured
-    if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
-      const langMap = { TW:'zh', ID:'id', VN:'vi', PH:'tl', TH:'th' };
-      currentLang = langMap[nat] || 'zh';
-      currentUser = { passport: pass, dob, nationality: nat, name: '考生 / Student', lang: currentLang };
-      localStorage.setItem('tocfl_user', JSON.stringify(currentUser));
-      loadStats();
-      showHome();
-    } else {
-      errEl.textContent = '連線失敗，請稍後再試';
-      errEl.style.display = 'block';
-    }
+    errEl.textContent = '連線失敗，請稍後再試 / Connection failed, please try again';
+    errEl.style.display = 'block';
   }
   btn.disabled = false;
   document.getElementById('login-btn-text').textContent = t('loginBtn');
