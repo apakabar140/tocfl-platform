@@ -795,11 +795,31 @@ async function doLogin() {
       loadStats();
       showHome();
     } else {
-      errEl.textContent = t('loginErr');
+      const nat2 = document.getElementById('inp-nationality').value;
+    const langMap2 = { TW:'zh', ID:'id', VN:'vi', PH:'tl', TH:'th' };
+    const errLang = langMap2[nat2] || 'zh';
+    const errMsgs = {
+      zh:'驗證失敗，請確認護照號碼與生日',
+      id:'Verifikasi gagal, periksa nomor paspor dan tanggal lahir',
+      vi:'Xác minh thất bại, kiểm tra số hộ chiếu và ngày sinh',
+      tl:'Nabigo ang pagpapatunay, suriin ang pasaporte at petsa ng kapanganakan',
+      th:'การยืนยันล้มเหลว ตรวจสอบหมายเลขหนังสือเดินทางและวันเกิด',
+    };
+    errEl.textContent = errMsgs[errLang] || errMsgs['zh'];
       errEl.style.display = 'block';
     }
   } catch(e) {
-    errEl.textContent = '連線失敗，請稍後再試 / Connection failed, please try again';
+    const nat3 = document.getElementById('inp-nationality').value;
+    const langMap3 = { TW:'zh', ID:'id', VN:'vi', PH:'tl', TH:'th' };
+    const connLang = langMap3[nat3] || 'zh';
+    const connMsgs = {
+      zh:'連線失敗，請稍後再試',
+      id:'Koneksi gagal, coba lagi nanti',
+      vi:'Kết nối thất bại, vui lòng thử lại',
+      tl:'Nabigo ang koneksyon, subukan muli mamaya',
+      th:'การเชื่อมต่อล้มเหลว โปรดลองอีกครั้ง',
+    };
+    errEl.textContent = connMsgs[connLang] || connMsgs['zh'];
     errEl.style.display = 'block';
   }
   btn.disabled = false;
