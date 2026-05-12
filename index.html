@@ -1233,7 +1233,7 @@ async function logAnswer(q, selected, isCorrect) {
   if (isCorrect) partStats[q.part].correct++;
   localStorage.setItem(partKey, JSON.stringify(partStats));
 
-  if (APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbylqbFE3B2fxqY7CTZJ34Ic375BMYI7XAZc1x9uchpIU5ZGwcF65OBCNP12dOKhKkU/exec') return;
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
   try {
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
