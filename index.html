@@ -827,12 +827,13 @@ async function doLogin() {
 }
 
 function doLogout() {
+  const userLang = currentUser?.lang || currentLang;
   const confirmMsg = {
     zh:'確定要登出嗎？', id:'Yakin ingin keluar?',
     vi:'Bạn có chắc muốn đăng xuất?', tl:'Sigurado ka bang mag-logout?',
     th:'แน่ใจว่าต้องการออกจากระบบ?'
   };
-  if (!confirm(confirmMsg[currentLang] || '確定要登出嗎？')) return;
+  if (!confirm(confirmMsg[userLang] || '確定要登出嗎？')) return;
   localStorage.removeItem('tocfl_user');
   currentUser = null;
   userStats = { done: 0, correct: 0 };
