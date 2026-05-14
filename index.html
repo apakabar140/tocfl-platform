@@ -332,14 +332,7 @@ body {
 .feedback.wrong-fb { background: var(--wrong-bg); border: 1.5px solid var(--wrong); color: var(--wrong); }
 .feedback-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
 
-/* AI explanation */
-.ai-explain {
-  background: #F5F0FF; border: 1.5px solid #C4A8F0;
-  border-radius: 12px; padding: 14px 16px;
-  font-size: 13px; line-height: 1.7; display: none; color: #3D2B7A;
-}
-.ai-explain-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-.ai-loading { color: #8A6DC0; font-size: 12px; }
+
 
 /* Next btn */
 .next-btn {
@@ -587,7 +580,7 @@ const T = {
     mockTitle:'模擬考試', mockSub:'選擇一冊完整作答，共 50 題',
     chooseAns:'選擇答案', correct:'✓ 正確！', wrong:'✗ 答錯了',
     corrAns:'正確答案：', next:'下一題 →', finish:'查看成績',
-    aiTitle:'💡 AI 解析', aiLoading:'分析中...', playAgain:'再聽一次',
+    playAgain:'再聽一次',
     resTitle:'練習完成！', resMockTitle:'模擬完成！',
     resAgain:'再練一次', resHome:'回主頁',
     resMsg: (s,t) => `答對 ${s} 題，共 ${t} 題`,
@@ -610,7 +603,7 @@ const T = {
     mockTitle:'Ujian Simulasi', mockSub:'Pilih satu buku, 50 soal lengkap',
     chooseAns:'Pilih Jawaban', correct:'✓ Benar!', wrong:'✗ Salah',
     corrAns:'Jawaban benar:', next:'Soal Berikutnya →', finish:'Lihat Hasil',
-    aiTitle:'💡 Penjelasan AI', aiLoading:'Menganalisis...', playAgain:'Putar ulang',
+    playAgain:'Putar ulang',
     resTitle:'Latihan Selesai!', resMockTitle:'Simulasi Selesai!',
     resAgain:'Ulangi Latihan', resHome:'Kembali ke Beranda',
     resMsg: (s,t) => `Benar ${s} dari ${t} soal`,
@@ -633,7 +626,7 @@ const T = {
     mockTitle:'Thi thử', mockSub:'Chọn một tập, 50 câu hỏi đầy đủ',
     chooseAns:'Chọn câu trả lời', correct:'✓ Đúng!', wrong:'✗ Sai',
     corrAns:'Đáp án đúng:', next:'Câu tiếp theo →', finish:'Xem kết quả',
-    aiTitle:'💡 Phân tích AI', aiLoading:'Đang phân tích...', playAgain:'Nghe lại',
+    playAgain:'Nghe lại',
     resTitle:'Hoàn thành luyện tập!', resMockTitle:'Hoàn thành thi thử!',
     resAgain:'Luyện lại', resHome:'Về trang chủ',
     resMsg: (s,t) => `Đúng ${s} / ${t} câu`,
@@ -656,7 +649,7 @@ const T = {
     mockTitle:'Simulasyon', mockSub:'Pumili ng isang libro, 50 tanong',
     chooseAns:'Pumili ng Sagot', correct:'✓ Tama!', wrong:'✗ Mali',
     corrAns:'Tamang sagot:', next:'Susunod →', finish:'Tingnan ang Resulta',
-    aiTitle:'💡 Paliwanag ng AI', aiLoading:'Sinusuri...', playAgain:'Pakinggan muli',
+    playAgain:'Pakinggan muli',
     resTitle:'Tapos na ang Pagsasanay!', resMockTitle:'Tapos na ang Simulasyon!',
     resAgain:'Ulitin', resHome:'Umuwi',
     resMsg: (s,t) => `Tama ang ${s} sa ${t} na tanong`,
@@ -679,7 +672,7 @@ const T = {
     mockTitle:'ข้อสอบจำลอง', mockSub:'เลือกหนึ่งเล่ม 50 ข้อครบ',
     chooseAns:'เลือกคำตอบ', correct:'✓ ถูก!', wrong:'✗ ผิด',
     corrAns:'คำตอบที่ถูก:', next:'ข้อถัดไป →', finish:'ดูผลลัพธ์',
-    aiTitle:'💡 การวิเคราะห์ AI', aiLoading:'กำลังวิเคราะห์...', playAgain:'เล่นอีกครั้ง',
+    playAgain:'เล่นอีกครั้ง',
     resTitle:'เสร็จสิ้นการฝึก!', resMockTitle:'เสร็จสิ้นการสอบ!',
     resAgain:'ฝึกอีกครั้ง', resHome:'กลับหน้าหลัก',
     resMsg: (s,t) => `ตอบถูก ${s} จาก ${t} ข้อ`,
@@ -1118,10 +1111,7 @@ function renderQuestion() {
   fb.className = 'feedback'; fb.id = 'feedback';
   body.appendChild(fb);
 
-  // AI explanation (hidden)
-  const ai = document.createElement('div');
-  ai.className = 'ai-explain'; ai.id = 'ai-explain';
-  body.appendChild(ai);
+
 
   // Next button
   const nextBtn = document.createElement('button');
@@ -1203,8 +1193,7 @@ function selectAnswer(selected, correct, q) {
   // Update score display
   document.getElementById('quiz-score').textContent = `✓ ${score}`;
 
-  // AI explanation for wrong answers
-  if (!isCorrect) getAIExplanation(q, selected, correct);
+
 
   // Show next
   document.getElementById('next-btn').style.display = 'block';
@@ -1213,47 +1202,6 @@ function selectAnswer(selected, correct, q) {
   logAnswer(q, selected, isCorrect);
 }
 
-async function getAIExplanation(q, selected, correct) {
-  const aiEl = document.getElementById('ai-explain');
-  aiEl.style.display = 'block';
-  aiEl.innerHTML = `<div class="ai-explain-title">${t('aiTitle')}</div>
-    <div class="ai-loading">${t('aiLoading')}</div>`;
-
-  // Build context for AI
-  const langNames = { zh:'繁體中文', id:'Bahasa Indonesia', vi:'Tiếng Việt', tl:'Filipino', th:'ภาษาไทย' };
-  const partNames = { part1:'第一部分 看圖回答', part2:'第二部分 問答理解', part3:'第三部分 對話理解', part4:'第四部分 對話' };
-  let optionsText = '';
-  if (q.part === 'part4' && q.options) {
-    Object.entries(q.options).forEach(([k,v]) => { optionsText += `(${k}) ${v}\n`; });
-  } else {
-    optionsText = '這是一道圖片題，考生看圖選答案';
-  }
-
-  const prompt = `你是 TOCFL 華語文聽力測驗的解析老師。
-考生答題情況：
-- 題號：第 ${q.qnum} 題（${partNames[q.part]}）
-- 考生選了：(${selected})，正確答案是：(${correct})
-${q.part === 'part4' ? `選項內容：\n${optionsText}` : '這是圖片選擇題'}
-
-請用 ${langNames[currentLang]} 給考生一個簡短、友善的解析（2-3句話），說明為什麼正確答案是 (${correct})，幫助考生理解。不要太長，要具體有幫助。`;
-
-  try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 300,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-    const data = await resp.json();
-    const explanation = data.content?.[0]?.text || '';
-    aiEl.innerHTML = `<div class="ai-explain-title">${t('aiTitle')}</div>${explanation}`;
-  } catch(e) {
-    aiEl.style.display = 'none';
-  }
-}
 
 async function logAnswer(q, selected, isCorrect) {
   userStats.done++;
