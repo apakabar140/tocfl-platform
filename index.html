@@ -701,6 +701,8 @@ let userStats = { done: 0, correct: 0 };
 
 // ── Load questions DB ──
 let QDB = [];
+let EXPLANATIONS = {};
+fetch('explanations.json').then(r=>r.json()).then(d=>{ EXPLANATIONS = d; }).catch(()=>{});
 fetch('questions_db.json').then(r=>r.json()).then(d=>{
   QDB = d;
   document.getElementById('loading').style.display = 'none';
@@ -1113,6 +1115,12 @@ function renderQuestion() {
 
 
 
+  // Explanation box (hidden)
+  const expBox = document.createElement('div');
+  expBox.id = 'explanation-box';
+  expBox.style.cssText = 'display:none;background:#F0EEFF;border:1.5px solid #C4B8F0;border-radius:12px;padding:14px 16px;margin-top:0;';
+  body.appendChild(expBox);
+
   // Next button
   const nextBtn = document.createElement('button');
   nextBtn.className = 'next-btn'; nextBtn.id = 'next-btn';
@@ -1192,6 +1200,23 @@ function selectAnswer(selected, correct, q) {
 
   // Update score display
   document.getElementById('quiz-score').textContent = `✓ ${score}`;
+
+  // Show explanation if available
+  if (!isCorrect) {
+    const expKey = q.id;
+    const exp = EXPLANATIONS[expKey];
+    if (exp) {
+      const lang = currentUser?.lang || currentLang;
+      const expText = exp[lang] || exp['zh'] || '';
+      if (expText) {
+        const expEl = document.getElementById('explanation-box');
+        if (expEl) {
+          expEl.style.display = 'block';
+          expEl.innerHTML = `<div style="font-size:12px;font-weight:700;color:#5B4FCF;margin-bottom:4px;">💡 ${currentLang==='id'?'Penjelasan':currentLang==='vi'?'Giải thích':currentLang==='tl'?'Paliwanag':currentLang==='th'?'คำอธิบาย':'解析'}</div><div style="font-size:13px;line-height:1.7;">${expText}</div>`;
+        }
+      }
+    }
+  }
 
 
 

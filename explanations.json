@@ -1,0 +1,352 @@
+{
+  "v1_q01": {
+    "zh": "圖片顯示黑板和學生坐在課桌前，這是典型的教室場景，所以答案是（B）教室。",
+    "id": "Gambar menunjukkan papan tulis dan siswa duduk di meja, ini adalah suasana kelas, jadi jawabannya (B) kelas.",
+    "vi": "Hình ảnh cho thấy bảng đen và học sinh ngồi ở bàn, đây là cảnh lớp học, nên đáp án là (B) lớp học.",
+    "tl": "Ang larawan ay nagpapakita ng pisara at mga estudyante na nakaupo sa mesa, ito ay isang klasrum, kaya ang sagot ay (B) klasrum.",
+    "th": "ภาพแสดงกระดานดำและนักเรียนนั่งที่โต๊ะ นี่คือห้องเรียน ดังนั้นคำตอบคือ (B) ห้องเรียน"
+  },
+  "v1_q02": {
+    "zh": "圖片顯示窗戶有裂縫或破損的樣子，所以答案是（A）窗戶破了。",
+    "id": "Gambar menunjukkan jendela yang retak atau rusak, jadi jawabannya (A) jendela pecah.",
+    "vi": "Hình ảnh cho thấy cửa sổ bị nứt hoặc hỏng, nên đáp án là (A) cửa sổ bị vỡ.",
+    "tl": "Ang larawan ay nagpapakita ng bintanang may bitak o sira, kaya ang sagot ay (A) ang bintana ay nasira.",
+    "th": "ภาพแสดงหน้าต่างที่แตกหรือเสียหาย ดังนั้นคำตอบคือ (A) หน้าต่างแตก"
+  },
+  "v1_q03": {
+    "zh": "圖片顯示書桌上有四本書，所以答案是（B）桌子上有四本書。",
+    "id": "Gambar menunjukkan empat buku di atas meja, jadi jawabannya (B) ada empat buku di atas meja.",
+    "vi": "Hình ảnh cho thấy bốn cuốn sách trên bàn, nên đáp án là (B) có bốn cuốn sách trên bàn.",
+    "tl": "Ang larawan ay nagpapakita ng apat na libro sa mesa, kaya ang sagot ay (B) may apat na libro sa mesa.",
+    "th": "ภาพแสดงหนังสือสี่เล่มบนโต๊ะ ดังนั้นคำตอบคือ (B) มีหนังสือสี่เล่มบนโต๊ะ"
+  },
+  "v1_q04": {
+    "zh": "圖片顯示的是一碗米飯，不是麵或湯，所以答案是（B）一碗飯。",
+    "id": "Gambar menunjukkan semangkuk nasi, bukan mie atau sup, jadi jawabannya (B) semangkuk nasi.",
+    "vi": "Hình ảnh cho thấy một bát cơm, không phải mì hay canh, nên đáp án là (B) một bát cơm.",
+    "tl": "Ang larawan ay nagpapakita ng isang mangkok ng kanin, hindi pansit o sabaw, kaya ang sagot ay (B) isang mangkok ng kanin.",
+    "th": "ภาพแสดงข้าวในชาม ไม่ใช่บะหมี่หรือซุป ดังนั้นคำตอบคือ (B) ข้าวหนึ่งชาม"
+  },
+  "v1_q05": {
+    "zh": "圖片顯示一個人在打籃球，手裡拿著籃球，所以答案是（A）打籃球。",
+    "id": "Gambar menunjukkan seseorang sedang bermain basket, memegang bola basket, jadi jawabannya (A) bermain basket.",
+    "vi": "Hình ảnh cho thấy một người đang chơi bóng rổ, cầm bóng rổ, nên đáp án là (A) chơi bóng rổ.",
+    "tl": "Ang larawan ay nagpapakita ng isang taong naglalaro ng basketball, hawak ang basketball, kaya ang sagot ay (A) naglalaro ng basketball.",
+    "th": "ภาพแสดงคนกำลังเล่นบาสเกตบอล ถือลูกบาสเกตบอล ดังนั้นคำตอบคือ (A) เล่นบาสเกตบอล"
+  },
+  "v1_q06": {
+    "zh": "圖片顯示這位學生表情難過、眼眶紅潤，是在哭泣的樣子，所以答案是（A）她在哭。",
+    "id": "Gambar menunjukkan ekspresi sedih siswa dengan mata merah, seperti sedang menangis, jadi jawabannya (A) dia sedang menangis.",
+    "vi": "Hình ảnh cho thấy học sinh buồn bã, mắt đỏ, như đang khóc, nên đáp án là (A) cô ấy đang khóc.",
+    "tl": "Ang larawan ay nagpapakita ng malungkot na estudyante, mapula ang mga mata, parang umiiyak, kaya ang sagot ay (A) siya ay umiiyak.",
+    "th": "ภาพแสดงนักเรียนที่เศร้า ตาแดง ดูเหมือนกำลังร้องไห้ ดังนั้นคำตอบคือ (A) เธอกำลังร้องไห้"
+  },
+  "v1_q07": {
+    "zh": "圖片顯示牆上掛著一幅畫，不是花或窗，所以答案是（C）牆上有畫。注意「畫」和「花」發音相近，要仔細分辨。",
+    "id": "Gambar menunjukkan lukisan di dinding, bukan bunga atau jendela, jadi jawabannya (C) ada lukisan di dinding. Perhatikan bahwa \"畫\" (lukisan) dan \"花\" (bunga) bunyinya mirip.",
+    "vi": "Hình ảnh cho thấy một bức tranh trên tường, không phải hoa hay cửa sổ, nên đáp án là (C) có tranh trên tường. Lưu ý \"畫\" và \"花\" phát âm gần giống nhau.",
+    "tl": "Ang larawan ay nagpapakita ng larawan sa dingding, hindi bulaklak o bintana, kaya ang sagot ay (C) may larawan sa dingding.",
+    "th": "ภาพแสดงภาพวาดบนกำแพง ไม่ใช่ดอกไม้หรือหน้าต่าง ดังนั้นคำตอบคือ (C) มีภาพวาดบนกำแพง"
+  },
+  "v1_q08": {
+    "zh": "圖片顯示小張在辦公室裡，有辦公桌和電腦，所以答案是（C）他在辦公室。",
+    "id": "Gambar menunjukkan Xiao Zhang di kantor dengan meja dan komputer, jadi jawabannya (C) dia di kantor.",
+    "vi": "Hình ảnh cho thấy Tiểu Trương ở văn phòng với bàn làm việc và máy tính, nên đáp án là (C) anh ấy ở văn phòng.",
+    "tl": "Ang larawan ay nagpapakita ni Xiao Zhang sa opisina na may mesa at computer, kaya ang sagot ay (C) siya ay nasa opisina.",
+    "th": "ภาพแสดงเซียวจางอยู่ในสำนักงานที่มีโต๊ะและคอมพิวเตอร์ ดังนั้นคำตอบคือ (C) เขาอยู่ในสำนักงาน"
+  },
+  "v1_q09": {
+    "zh": "圖片顯示這位先生站在廚房爐子前面，正在烹煮食物，所以答案是（B）他正在煮飯。",
+    "id": "Gambar menunjukkan pria berdiri di depan kompor dapur sedang memasak, jadi jawabannya (B) dia sedang memasak.",
+    "vi": "Hình ảnh cho thấy người đàn ông đứng trước bếp đang nấu ăn, nên đáp án là (B) anh ấy đang nấu cơm.",
+    "tl": "Ang larawan ay nagpapakita ng lalaki na nakatayo sa harap ng kalan sa kusina at nagluluto, kaya ang sagot ay (B) siya ay nagluluto.",
+    "th": "ภาพแสดงชายยืนหน้าเตาในครัวกำลังปรุงอาหาร ดังนั้นคำตอบคือ (B) เขากำลังทำอาหาร"
+  },
+  "v1_q10": {
+    "zh": "圖片顯示地上有積雪，天空飄著雪花，是下雪的天氣，所以答案是（B）下雪。",
+    "id": "Gambar menunjukkan salju di tanah dan kepingan salju di udara, cuaca bersalju, jadi jawabannya (B) turun salju.",
+    "vi": "Hình ảnh cho thấy tuyết trên mặt đất và bông tuyết trong không khí, thời tiết có tuyết, nên đáp án là (B) tuyết rơi.",
+    "tl": "Ang larawan ay nagpapakita ng niyebe sa lupa at mga niyebe sa hangin, malamig na panahon, kaya ang sagot ay (B) umaanin.",
+    "th": "ภาพแสดงหิมะบนพื้นและเกล็ดหิมะในอากาศ อากาศหิมะตก ดังนั้นคำตอบคือ (B) หิมะตก"
+  },
+  "v1_q11": {
+    "zh": "圖片顯示幾個人在一起唱歌，有人拿著麥克風，所以答案是（C）他們正在唱歌兒。",
+    "id": "Gambar menunjukkan beberapa orang bernyanyi bersama, ada yang memegang mikrofon, jadi jawabannya (C) mereka sedang bernyanyi.",
+    "vi": "Hình ảnh cho thấy một số người đang hát cùng nhau, có người cầm micro, nên đáp án là (C) họ đang hát.",
+    "tl": "Ang larawan ay nagpapakita ng ilang tao na kumakanta nang magkasama, may hawak na mikropono, kaya ang sagot ay (C) sila ay kumakanta.",
+    "th": "ภาพแสดงคนหลายคนร้องเพลงด้วยกัน มีคนถือไมโครโฟน ดังนั้นคำตอบคือ (C) พวกเขากำลังร้องเพลง"
+  },
+  "v1_q12": {
+    "zh": "圖片顯示王小明騎著腳踏車去上學，所以答案是（C）他騎腳踏車。",
+    "id": "Gambar menunjukkan Wang Xiaoming mengendarai sepeda ke sekolah, jadi jawabannya (C) dia naik sepeda.",
+    "vi": "Hình ảnh cho thấy Vương Tiểu Minh đi xe đạp đến trường, nên đáp án là (C) anh ấy đi xe đạp.",
+    "tl": "Ang larawan ay nagpapakita ni Wang Xiaoming na nagbibisikleta papunta sa paaralan, kaya ang sagot ay (C) siya ay nagbibisikleta.",
+    "th": "ภาพแสดงหวังเสี่ยวหมิงขี่จักรยานไปโรงเรียน ดังนั้นคำตอบคือ (C) เขาขี่จักรยาน"
+  },
+  "v1_q13": {
+    "zh": "圖片顯示媽媽拿著幾件衣服，所以答案是（B）幾件衣服。",
+    "id": "Gambar menunjukkan ibu memegang beberapa pakaian, jadi jawabannya (B) beberapa pakaian.",
+    "vi": "Hình ảnh cho thấy mẹ cầm một vài bộ quần áo, nên đáp án là (B) một vài bộ quần áo.",
+    "tl": "Ang larawan ay nagpapakita ng ina na may hawak na ilang damit, kaya ang sagot ay (B) ilang damit.",
+    "th": "ภาพแสดงแม่ถือเสื้อผ้าหลายชิ้น ดังนั้นคำตอบคือ (B) เสื้อผ้าหลายชิ้น"
+  },
+  "v1_q14": {
+    "zh": "圖片顯示書包旁邊有一枝筆，所以答案是（B）一枝筆。",
+    "id": "Gambar menunjukkan sebuah pena di samping tas, jadi jawabannya (B) sebuah pena.",
+    "vi": "Hình ảnh cho thấy một chiếc bút bên cạnh cặp sách, nên đáp án là (B) một chiếc bút.",
+    "tl": "Ang larawan ay nagpapakita ng isang panulat sa tabi ng bag, kaya ang sagot ay (B) isang panulat.",
+    "th": "ภาพแสดงปากกาหนึ่งด้ามอยู่ข้างกระเป๋า ดังนั้นคำตอบคือ (B) ปากกาหนึ่งด้าม"
+  },
+  "v1_q15": {
+    "zh": "圖片顯示學生們都在看電腦螢幕上課，所以答案是（C）他們用電腦上課。",
+    "id": "Gambar menunjukkan siswa-siswa belajar menggunakan layar komputer, jadi jawabannya (C) mereka belajar menggunakan komputer.",
+    "vi": "Hình ảnh cho thấy các học sinh đang học qua màn hình máy tính, nên đáp án là (C) họ học qua máy tính.",
+    "tl": "Ang larawan ay nagpapakita ng mga estudyante na nag-aaral sa pamamagitan ng screen ng computer, kaya ang sagot ay (C) sila ay nag-aaral gamit ang computer.",
+    "th": "ภาพแสดงนักเรียนเรียนผ่านหน้าจอคอมพิวเตอร์ ดังนั้นคำตอบคือ (C) พวกเขาเรียนด้วยคอมพิวเตอร์"
+  },
+  "v1_q16": {
+    "zh": "圖片顯示月華穿著老師的服裝，站在黑板前面教書，所以答案是（C）她是老師。",
+    "id": "Gambar menunjukkan Yuehua mengenakan seragam guru, berdiri di depan papan tulis mengajar, jadi jawabannya (C) dia adalah guru.",
+    "vi": "Hình ảnh cho thấy Nguyệt Hoa mặc đồng phục giáo viên, đứng trước bảng dạy học, nên đáp án là (C) cô ấy là giáo viên.",
+    "tl": "Ang larawan ay nagpapakita ni Yuehua na nakasalamin ng damit ng guro, nakatayo sa harap ng pisara at nagtuturo, kaya ang sagot ay (C) siya ay guro.",
+    "th": "ภาพแสดงเยว่หัวสวมชุดครูยืนหน้ากระดานสอนหนังสือ ดังนั้นคำตอบคือ (C) เธอเป็นครู"
+  },
+  "v1_q17": {
+    "zh": "圖片顯示老李拿著茶杯，旁邊有茶壺，正在喝茶，所以答案是（B）他在喝茶。",
+    "id": "Gambar menunjukkan Lao Li memegang cangkir teh dengan teko di sampingnya, sedang minum teh, jadi jawabannya (B) dia sedang minum teh.",
+    "vi": "Hình ảnh cho thấy Lão Lý cầm tách trà với ấm trà bên cạnh, đang uống trà, nên đáp án là (B) anh ấy đang uống trà.",
+    "tl": "Ang larawan ay nagpapakita ni Lao Li na may hawak na tasa ng tsaa at may tsarera sa tabi, umiinom ng tsaa, kaya ang sagot ay (B) siya ay umiinom ng tsaa.",
+    "th": "ภาพแสดงเหล่าหลี่ถือถ้วยชา มีกาน้ำชาอยู่ข้างๆ กำลังดื่มชา ดังนั้นคำตอบคือ (B) เขากำลังดื่มชา"
+  },
+  "v1_q18": {
+    "zh": "圖片顯示大華坐在書桌前，眼睛看著書本，正在認真讀書，所以答案是（A）他正在讀書。",
+    "id": "Gambar menunjukkan Dahua duduk di meja belajar, melihat buku, sedang membaca dengan serius, jadi jawabannya (A) dia sedang membaca.",
+    "vi": "Hình ảnh cho thấy Đại Hoa ngồi ở bàn học, nhìn vào sách, đang đọc sách chăm chú, nên đáp án là (A) anh ấy đang đọc sách.",
+    "tl": "Ang larawan ay nagpapakita ni Dahua na nakaupo sa mesa ng pag-aaral, nakatingin sa libro, seryosong nagbabasa, kaya ang sagot ay (A) siya ay nagbabasa.",
+    "th": "ภาพแสดงต้าหัวนั่งที่โต๊ะเรียน มองดูหนังสือ กำลังอ่านหนังสืออย่างตั้งใจ ดังนั้นคำตอบคือ (A) เขากำลังอ่านหนังสือ"
+  },
+  "v1_q19": {
+    "zh": "圖片顯示穿短褲的女孩站得最高，其他兩個小孩都比她矮，所以答案是（B）穿短褲的女孩最高。",
+    "id": "Gambar menunjukkan anak perempuan bercelana pendek berdiri paling tinggi, dua anak lain lebih pendek darinya, jadi jawabannya (B) anak perempuan bercelana pendek paling tinggi.",
+    "vi": "Hình ảnh cho thấy bé gái mặc quần short đứng cao nhất, hai đứa trẻ khác thấp hơn, nên đáp án là (B) bé gái mặc quần short cao nhất.",
+    "tl": "Ang larawan ay nagpapakita ng batang babae na suot na short na pinakamataas, ang dalawang bata ay mas maikli kaysa sa kanya, kaya ang sagot ay (B) ang batang babae na suot na short ang pinakamataas.",
+    "th": "ภาพแสดงเด็กผู้หญิงที่สวมกางเกงขาสั้นสูงที่สุด เด็กอีกสองคนเตี้ยกว่า ดังนั้นคำตอบคือ (B) เด็กผู้หญิงที่สวมกางเกงขาสั้นสูงที่สุด"
+  },
+  "v1_q20": {
+    "zh": "圖片顯示小天的家裡有媽媽和爸爸，所以答案是（C）他家裡有媽媽和爸爸。",
+    "id": "Gambar menunjukkan keluarga Xiao Tian ada ibu dan ayah, jadi jawabannya (C) di rumahnya ada ibu dan ayah.",
+    "vi": "Hình ảnh cho thấy gia đình Tiểu Thiên có mẹ và bố, nên đáp án là (C) nhà anh ấy có mẹ và bố.",
+    "tl": "Ang larawan ay nagpapakita ng pamilya ni Xiao Tian na may ina at ama, kaya ang sagot ay (C) sa kanyang bahay ay may ina at ama.",
+    "th": "ภาพแสดงครอบครัวของเสี่ยวเทียนมีแม่และพ่อ ดังนั้นคำตอบคือ (C) บ้านเขามีแม่และพ่อ"
+  },
+  "v1_q21": {
+    "zh": "圖片顯示桌上有蘋果和香蕉，沒有西瓜，所以答案是（C）蘋果和香蕉。",
+    "id": "Gambar menunjukkan ada apel dan pisang di meja, tidak ada semangka, jadi jawabannya (C) apel dan pisang.",
+    "vi": "Hình ảnh cho thấy có táo và chuối trên bàn, không có dưa hấu, nên đáp án là (C) táo và chuối.",
+    "tl": "Ang larawan ay nagpapakita ng mansanas at saging sa mesa, walang pakwan, kaya ang sagot ay (C) mansanas at saging.",
+    "th": "ภาพแสดงแอปเปิ้ลและกล้วยบนโต๊ะ ไม่มีแตงโม ดังนั้นคำตอบคือ (C) แอปเปิ้ลและกล้วย"
+  },
+  "v1_q22": {
+    "zh": "圖片顯示筆放在桌子上面，不是在電腦前面或紙的下面，所以答案是（C）筆在桌子上面。",
+    "id": "Gambar menunjukkan pena di atas meja, bukan di depan komputer atau di bawah kertas, jadi jawabannya (C) pena di atas meja.",
+    "vi": "Hình ảnh cho thấy bút ở trên bàn, không phải trước máy tính hay dưới tờ giấy, nên đáp án là (C) bút ở trên bàn.",
+    "tl": "Ang larawan ay nagpapakita ng panulat na nasa ibabaw ng mesa, hindi sa harap ng computer o sa ilalim ng papel, kaya ang sagot ay (C) ang panulat ay nasa ibabaw ng mesa.",
+    "th": "ภาพแสดงปากกาอยู่บนโต๊ะ ไม่ใช่หน้าคอมพิวเตอร์หรือใต้กระดาษ ดังนั้นคำตอบคือ (C) ปากกาอยู่บนโต๊ะ"
+  },
+  "v1_q23": {
+    "zh": "圖片顯示今天風很大，旗子在飄，太陽也很大，但沒有下雨，所以答案是（B）今天風很大，太陽也很大。",
+    "id": "Gambar menunjukkan hari ini anginnya kencang dengan bendera berkibar, matahari juga terik, tapi tidak hujan, jadi jawabannya (B) hari ini angin kencang dan matahari terik.",
+    "vi": "Hình ảnh cho thấy hôm nay gió mạnh, cờ bay phất phới, mặt trời cũng rực rỡ, nhưng không có mưa, nên đáp án là (B) hôm nay gió mạnh và mặt trời to.",
+    "tl": "Ang larawan ay nagpapakita ng malakas na hangin ngayon, ang watawat ay lumilipad, at mainit ang araw, ngunit walang ulan, kaya ang sagot ay (B) ngayon ay mahangin at mainit ang araw.",
+    "th": "ภาพแสดงวันนี้ลมแรง ธงโบก แดดก็แรง แต่ไม่มีฝน ดังนั้นคำตอบคือ (B) วันนี้ลมแรงและแดดแรง"
+  },
+  "v1_q24": {
+    "zh": "圖片顯示美美拿著鞋子和皮包，所以答案是（B）美美買了鞋子和皮包。",
+    "id": "Gambar menunjukkan Meimei memegang sepatu dan tas, jadi jawabannya (B) Meimei membeli sepatu dan tas.",
+    "vi": "Hình ảnh cho thấy Mỹ Mỹ cầm giày và túi xách, nên đáp án là (B) Mỹ Mỹ mua giày và túi xách.",
+    "tl": "Ang larawan ay nagpapakita ni Meimei na may hawak na sapatos at bag, kaya ang sagot ay (B) si Meimei ay bumili ng sapatos at bag.",
+    "th": "ภาพแสดงเหมยเหมยถือรองเท้าและกระเป๋า ดังนั้นคำตอบคือ (B) เหมยเหมยซื้อรองเท้าและกระเป๋า"
+  },
+  "v1_q25": {
+    "zh": "圖片顯示小明坐在電腦前面，正在網路上操作掛號，所以答案是（B）他正在網路掛號。",
+    "id": "Gambar menunjukkan Xiao Ming duduk di depan komputer, sedang mendaftar online, jadi jawabannya (B) dia sedang mendaftar online.",
+    "vi": "Hình ảnh cho thấy Tiểu Minh ngồi trước máy tính, đang đặt lịch hẹn trực tuyến, nên đáp án là (B) anh ấy đang đặt lịch hẹn trực tuyến.",
+    "tl": "Ang larawan ay nagpapakita ni Xiao Ming na nakaupo sa harap ng computer, nagre-rehistro online, kaya ang sagot ay (B) siya ay nagre-rehistro online.",
+    "th": "ภาพแสดงเสี่ยวหมิงนั่งหน้าคอมพิวเตอร์ กำลังนัดหมายออนไลน์ ดังนั้นคำตอบคือ (B) เขากำลังนัดหมายออนไลน์"
+  },
+  "v1_q26": {
+    "zh": "對話中老師說「那裡很冷，帶件外套吧」，所以圖片應該是外套。答案是（C）。",
+    "id": "Dalam dialog guru berkata \"di sana sangat dingin, bawa jaket\", jadi gambarnya adalah jaket. Jawabannya (C).",
+    "vi": "Trong hội thoại, giáo viên nói \"ở đó rất lạnh, hãy mang áo khoác\", nên hình ảnh là áo khoác. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng guro \"malamig doon, magdala ng jacket\", kaya ang larawan ay jacket. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ครูพูดว่า \"ที่นั่นหนาวมาก เอาเสื้อแจ็คเก็ตไปด้วย\" ดังนั้นภาพคือแจ็คเก็ต คำตอบคือ (C)"
+  },
+  "v1_q27": {
+    "zh": "對話中女生說「我牙齒好痛，我不想去」，所以圖片應該是牙痛的樣子。答案是（A）。",
+    "id": "Dalam dialog, wanita berkata \"gigi saya sangat sakit, saya tidak mau pergi\", jadi gambarnya menunjukkan sakit gigi. Jawabannya (A).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"răng tôi đau lắm, tôi không muốn đi\", nên hình ảnh là đau răng. Đáp án (A).",
+    "tl": "Sa diyalogo, sinabi ng babae \"masakit ang ngipin ko, ayaw kong pumunta\", kaya ang larawan ay nagpapakita ng masakit na ngipin. Ang sagot ay (A).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"ฟันฉันปวดมาก ฉันไม่อยากไป\" ดังนั้นภาพแสดงอาการปวดฟัน คำตอบคือ (A)"
+  },
+  "v1_q28": {
+    "zh": "對話中女生說「放在窗戶前面吧！那兒比較亮」，所以圖片應該是桌子放在窗戶前面。答案是（B）。",
+    "id": "Dalam dialog, wanita berkata \"taruh di depan jendela, lebih terang di sana\", jadi gambarnya meja di depan jendela. Jawabannya (B).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"để ở trước cửa sổ, ở đó sáng hơn\", nên hình ảnh là bàn ở trước cửa sổ. Đáp án (B).",
+    "tl": "Sa diyalogo, sinabi ng babae \"ilagay sa harap ng bintana, mas maliwanag doon\", kaya ang larawan ay mesa sa harap ng bintana. Ang sagot ay (B).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"วางไว้หน้าหน้าต่างเถอะ สว่างกว่า\" ดังนั้นภาพคือโต๊ะอยู่หน้าหน้าต่าง คำตอบคือ (B)"
+  },
+  "v1_q29": {
+    "zh": "對話中女生說「天氣那麼熱，我想去海邊走走」，所以圖片應該是海邊的景色。答案是（C）。",
+    "id": "Dalam dialog, wanita berkata \"cuaca sangat panas, saya ingin jalan-jalan ke pantai\", jadi gambarnya pemandangan pantai. Jawabannya (C).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"trời nóng quá, tôi muốn đi dạo ở biển\", nên hình ảnh là cảnh biển. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng babae \"mainit ang panahon, gusto kong maglakad sa tabing dagat\", kaya ang larawan ay tanawin ng dagat. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"อากาศร้อนมาก อยากไปเดินเล่นที่ทะเล\" ดังนั้นภาพคือทิวทัศน์ทะเล คำตอบคือ (C)"
+  },
+  "v1_q30": {
+    "zh": "對話中男生說「太小了」，所以衣服對他來說太小，圖片應該是衣服太小的樣子。答案是（A）。",
+    "id": "Dalam dialog, pria berkata \"terlalu kecil\", jadi baju terlalu kecil untuknya, gambarnya menunjukkan baju yang kecil. Jawabannya (A).",
+    "vi": "Trong hội thoại, người đàn ông nói \"quá nhỏ\", nên quần áo quá nhỏ với anh ấy, hình ảnh là quần áo nhỏ. Đáp án (A).",
+    "tl": "Sa diyalogo, sinabi ng lalaki \"masyadong maliit\", kaya ang damit ay masyadong maliit para sa kanya, ang larawan ay nagpapakita ng maliit na damit. Ang sagot ay (A).",
+    "th": "ในบทสนทนา ผู้ชายพูดว่า \"เล็กเกินไป\" ดังนั้นเสื้อผ้าเล็กเกินไปสำหรับเขา ภาพแสดงเสื้อผ้าที่เล็กเกินไป คำตอบคือ (A)"
+  },
+  "v1_q31": {
+    "zh": "對話中女生說「她的頭髮長長的，戴眼鏡」，所以圖片應該是一個長頭髮戴眼鏡的女生。答案是（C）。",
+    "id": "Dalam dialog, wanita berkata \"rambutnya panjang dan memakai kacamata\", jadi gambarnya gadis berambut panjang berkacamata. Jawabannya (C).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"tóc cô ấy dài và đeo kính\", nên hình ảnh là cô gái tóc dài đeo kính. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng babae \"mahaba ang buhok niya at may suot na salamin\", kaya ang larawan ay isang batang babae na may mahabang buhok at salamin. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"ผมเธอยาวและใส่แว่น\" ดังนั้นภาพคือเด็กผู้หญิงผมยาวใส่แว่น คำตอบคือ (C)"
+  },
+  "v1_q32": {
+    "zh": "對話中女生說「你一直往前走，車站在你的右邊」，所以火車站在右邊。答案是（B）。",
+    "id": "Dalam dialog, wanita berkata \"terus jalan lurus, stasiun ada di sebelah kanan Anda\", jadi stasiun kereta ada di kanan. Jawabannya (B).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"đi thẳng, ga xe lửa ở bên phải bạn\", nên ga xe lửa ở bên phải. Đáp án (B).",
+    "tl": "Sa diyalogo, sinabi ng babae \"lumakad ka nang tuwid, ang istasyon ay nasa kanan mo\", kaya ang istasyon ng tren ay nasa kanan. Ang sagot ay (B).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"เดินตรงไป สถานีอยู่ทางขวาของคุณ\" ดังนั้นสถานีรถไฟอยู่ทางขวา คำตอบคือ (B)"
+  },
+  "v1_q33": {
+    "zh": "對話中女生說「我要兩個漢堡，還有，我要冰牛奶喔」，買兩個漢堡就送牛奶，所以她拿到兩個漢堡和牛奶。答案是（C）。",
+    "id": "Dalam dialog, wanita berkata \"saya mau dua burger dan susu dingin\", beli dua burger gratis susu, jadi dia mendapat dua burger dan susu. Jawabannya (C).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"tôi muốn hai cái bánh mì kẹp và sữa lạnh\", mua hai cái được tặng sữa, nên cô ấy có hai bánh mì kẹp và sữa. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng babae \"gusto ko ng dalawang burger at malamig na gatas\", ang pagbili ng dalawang burger ay may libreng gatas, kaya siya ay nakakuha ng dalawang burger at gatas. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"ฉันต้องการเบอร์เกอร์สองอันและนมเย็น\" ซื้อสองอันได้นมฟรี ดังนั้นเธอได้เบอร์เกอร์สองอันและนม คำตอบคือ (C)"
+  },
+  "v1_q34": {
+    "zh": "對話中女生說「我要去公園聽音樂會」，所以圖片應該是公園音樂會的場景。答案是（B）。",
+    "id": "Dalam dialog, wanita berkata \"saya akan pergi ke taman untuk mendengarkan konser\", jadi gambarnya adalah konser di taman. Jawabannya (B).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"tôi sẽ đến công viên nghe hòa nhạc\", nên hình ảnh là hòa nhạc trong công viên. Đáp án (B).",
+    "tl": "Sa diyalogo, sinabi ng babae \"pupunta ako sa parke para makinig ng konsyerto\", kaya ang larawan ay konsyerto sa parke. Ang sagot ay (B).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"ฉันจะไปสวนสาธารณะฟังคอนเสิร์ต\" ดังนั้นภาพคือคอนเสิร์ตในสวนสาธารณะ คำตอบคือ (B)"
+  },
+  "v1_q35": {
+    "zh": "對話中女生說「嗯，還有我手上這一件」，所以她還要買手上拿著的那件衣服，共買兩件。答案是（C）。",
+    "id": "Dalam dialog, wanita berkata \"iya, juga yang saya pegang ini\", jadi dia juga membeli yang dipegangnya, total dua pakaian. Jawabannya (C).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"ừ, còn cái tôi đang cầm này nữa\", nên cô ấy còn mua cái đang cầm, tổng cộng hai bộ. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng babae \"oo, pati na rin ang hawak ko ito\", kaya siya ay bibili din ng hawak niya, kabuuang dalawang damit. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"อีม่ รวมอันที่ถืออยู่นี้ด้วย\" ดังนั้นเธอจะซื้ออีกชิ้นที่ถืออยู่ รวมสองชิ้น คำตอบคือ (C)"
+  },
+  "v1_q36": {
+    "zh": "對話中女生說「我妹妹生了一個兒子，我來看他們」，所以她是來醫院探望剛生產的妹妹和外甥。答案是（C）。",
+    "id": "Dalam dialog, wanita berkata \"adik perempuan saya melahirkan seorang putra, saya datang untuk melihat mereka\", jadi dia datang ke rumah sakit untuk mengunjungi adiknya yang baru melahirkan. Jawabannya (C).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"em gái tôi vừa sinh con trai, tôi đến thăm họ\", nên cô ấy đến bệnh viện thăm em gái vừa sinh. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng babae \"ang kapatid na babae ko ay nanganak ng isang lalaki, dumating ako para bisitahin sila\", kaya siya ay pumunta sa ospital para bisitahin ang kapatid na babae na kababaanak. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"น้องสาวฉันเพิ่งคลอดลูกชาย ฉันมาเยี่ยม\" ดังนั้นเธอมาโรงพยาบาลเยี่ยมน้องสาวที่เพิ่งคลอด คำตอบคือ (C)"
+  },
+  "v1_q37": {
+    "zh": "對話中女生說「不，我是自己一個人去的」，所以她一個人去旅行，沒有和家人一起。答案是（B）。",
+    "id": "Dalam dialog, wanita berkata \"tidak, saya pergi sendiri\", jadi dia bepergian sendiri, bukan dengan keluarga. Jawabannya (B).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"không, tôi đi một mình\", nên cô ấy đi du lịch một mình, không cùng gia đình. Đáp án (B).",
+    "tl": "Sa diyalogo, sinabi ng babae \"hindi, pumunta ako nang mag-isa\", kaya siya ay nagbiyahe nang mag-isa, hindi kasama ang pamilya. Ang sagot ay (B).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"ไม่ ฉันไปคนเดียว\" ดังนั้นเธอเดินทางคนเดียว ไม่ได้ไปกับครอบครัว คำตอบคือ (B)"
+  },
+  "v1_q38": {
+    "zh": "對話中女生說「你可以帶他們到棒球場，坐240號公車很快就到了」，所以圖片應該是棒球場和公車的組合。答案是（C）。",
+    "id": "Dalam dialog, wanita berkata \"kamu bisa membawa mereka ke lapangan baseball, naik bus 240 cepat sampai\", jadi gambarnya kombinasi lapangan baseball dan bus. Jawabannya (C).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"bạn có thể đưa họ đến sân bóng chày, đi xe buýt số 240 nhanh lắm\", nên hình ảnh là sân bóng chày và xe buýt. Đáp án (C).",
+    "tl": "Sa diyalogo, sinabi ng babae \"maaari mong dalhin sila sa baseball field, sumakay ng bus 240 mabilis ang dating\", kaya ang larawan ay kombinasyon ng baseball field at bus. Ang sagot ay (C).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"คุณพาพวกเขาไปสนามเบสบอลได้ นั่งรถเมล์สาย 240 ไปถึงเร็ว\" ดังนั้นภาพคือสนามเบสบอลและรถเมล์ คำตอบคือ (C)"
+  },
+  "v1_q39": {
+    "zh": "對話中女生說「你可以坐地鐵，前面就有地鐵站」，所以圖片應該是地鐵。答案是（B）。",
+    "id": "Dalam dialog, wanita berkata \"kamu bisa naik MRT, ada stasiun MRT di depan\", jadi gambarnya adalah MRT. Jawabannya (B).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"bạn có thể đi tàu điện ngầm, phía trước có ga tàu điện ngầm\", nên hình ảnh là tàu điện ngầm. Đáp án (B).",
+    "tl": "Sa diyalogo, sinabi ng babae \"maaari kang sumakay ng MRT, may istasyon ng MRT sa harap\", kaya ang larawan ay MRT. Ang sagot ay (B).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"คุณนั่งรถไฟฟ้าได้ ข้างหน้ามีสถานี\" ดังนั้นภาพคือรถไฟฟ้า คำตอบคือ (B)"
+  },
+  "v1_q40": {
+    "zh": "對話中女生說「沒那麼貴」，表示外套不是五百元，比五百元便宜。所以正確圖片是標示比五百元低的價格。答案是（A）。",
+    "id": "Dalam dialog, wanita berkata \"tidak semahal itu\", berarti jaket tidak seharga 500 yuan, lebih murah. Jadi gambarnya menunjukkan harga di bawah 500. Jawabannya (A).",
+    "vi": "Trong hội thoại, người phụ nữ nói \"không đắt đến vậy\", nghĩa là áo khoác không phải 500 tệ, rẻ hơn. Nên hình ảnh cho thấy giá dưới 500. Đáp án (A).",
+    "tl": "Sa diyalogo, sinabi ng babae \"hindi ganoon kamahal\", ibig sabihin ang jacket ay hindi 500 yuan, mas mura. Kaya ang larawan ay nagpapakita ng presyo na mas mababa sa 500. Ang sagot ay (A).",
+    "th": "ในบทสนทนา ผู้หญิงพูดว่า \"ไม่แพงขนาดนั้น\" หมายความว่าแจ็คเก็ตไม่ใช่ห้าร้อยหยวน ถูกกว่า ดังนั้นภาพแสดงราคาต่ำกว่า 500 คำตอบคือ (A)"
+  },
+  "v1_q41": {
+    "zh": "對話中兩人在討論褲子的尺寸，還要試穿，「請到這裡來」說明他們在服裝店。答案是（C）服裝店。",
+    "id": "Dialog membahas ukuran celana dan mencoba pakaian, \"silakan ke sini\" menunjukkan mereka di toko pakaian. Jawabannya (C) toko pakaian.",
+    "vi": "Hội thoại bàn về kích cỡ quần và thử đồ, \"mời đến đây\" cho thấy họ ở cửa hàng quần áo. Đáp án (C) cửa hàng quần áo.",
+    "tl": "Ang diyalogo ay tungkol sa sukat ng pantalon at pagsubok ng damit, \"mangyaring pumunta dito\" ay nagpapakita na sila ay nasa tindahan ng damit. Ang sagot ay (C) tindahan ng damit.",
+    "th": "บทสนทนาพูดถึงขนาดกางเกงและลองชุด \"กรุณามาที่นี่\" แสดงว่าพวกเขาอยู่ในร้านเสื้อผ้า คำตอบคือ (C) ร้านเสื้อผ้า"
+  },
+  "v1_q42": {
+    "zh": "女生說「我想你現在只能去學校的書店買了」，所以男同學應該去書店買書。答案是（C）書店。",
+    "id": "Wanita berkata \"saya pikir sekarang kamu hanya bisa membeli di toko buku sekolah\", jadi mahasiswa harus pergi ke toko buku. Jawabannya (C) toko buku.",
+    "vi": "Người phụ nữ nói \"tôi nghĩ bây giờ bạn chỉ có thể mua ở nhà sách của trường\", nên nam sinh phải đến nhà sách. Đáp án (C) nhà sách.",
+    "tl": "Sinabi ng babae \"sa tingin ko ngayon ay sa bookstore lamang ng paaralan ka makakabili\", kaya ang lalaking estudyante ay dapat pumunta sa bookstore. Ang sagot ay (C) bookstore.",
+    "th": "ผู้หญิงพูดว่า \"ฉันคิดว่าตอนนี้คุณซื้อได้ที่ร้านหนังสือของโรงเรียนเท่านั้น\" ดังนั้นนักศึกษาชายต้องไปร้านหนังสือ คำตอบคือ (C) ร้านหนังสือ"
+  },
+  "v1_q43": {
+    "zh": "男生說「星期一到星期五的早上比較便宜」，所以週一到週五的早上學游泳比較便宜。答案是（A）。",
+    "id": "Pria berkata \"Senin sampai Jumat pagi lebih murah\", jadi belajar berenang Senin-Jumat pagi lebih murah. Jawabannya (A).",
+    "vi": "Người đàn ông nói \"sáng thứ Hai đến thứ Sáu rẻ hơn\", nên học bơi sáng thứ Hai-thứ Sáu rẻ hơn. Đáp án (A).",
+    "tl": "Sinabi ng lalaki \"mas mura tuwing Lunes hanggang Biyernes ng umaga\", kaya ang pag-aaral ng paglangoy tuwing Lunes-Biyernes ng umaga ay mas mura. Ang sagot ay (A).",
+    "th": "ผู้ชายพูดว่า \"วันจันทร์ถึงวันศุกร์ตอนเช้าราคาถูกกว่า\" ดังนั้นเรียนว่ายน้ำวันจันทร์-ศุกร์ตอนเช้าราคาถูกกว่า คำตอบคือ (A)"
+  },
+  "v1_q44": {
+    "zh": "女生說「電腦教室就在圖書館樓上」，所以電腦教室在圖書館上面（二樓）。答案是（C）。",
+    "id": "Wanita berkata \"ruang komputer ada di lantai atas perpustakaan\", jadi ruang komputer ada di atas perpustakaan (lantai dua). Jawabannya (C).",
+    "vi": "Người phụ nữ nói \"phòng máy tính ở tầng trên của thư viện\", nên phòng máy tính ở trên thư viện (tầng hai). Đáp án (C).",
+    "tl": "Sinabi ng babae \"ang computer room ay nasa itaas na palapag ng library\", kaya ang computer room ay nasa itaas ng library (ikalawang palapag). Ang sagot ay (C).",
+    "th": "ผู้หญิงพูดว่า \"ห้องคอมพิวเตอร์อยู่ชั้นบนของห้องสมุด\" ดังนั้นห้องคอมพิวเตอร์อยู่เหนือห้องสมุด (ชั้นสอง) คำตอบคือ (C)"
+  },
+  "v1_q45": {
+    "zh": "女生說「二十分鐘以後就有車了」，現在是十點二十五分，再過二十分鐘是十點四十五分。答案是（A）十點四十五分的火車。",
+    "id": "Wanita berkata \"ada kereta 20 menit lagi\", sekarang pukul 10:25, 20 menit lagi adalah 10:45. Jawabannya (A) kereta pukul 10:45.",
+    "vi": "Người phụ nữ nói \"20 phút nữa có xe\", bây giờ là 10:25, thêm 20 phút là 10:45. Đáp án (A) tàu lúc 10:45.",
+    "tl": "Sinabi ng babae \"may tren pagkatapos ng 20 minuto\", ngayon ay 10:25, pagkatapos ng 20 minuto ay 10:45. Ang sagot ay (A) tren ng 10:45.",
+    "th": "ผู้หญิงพูดว่า \"อีก 20 นาทีมีรถ\" ตอนนี้ 10:25 อีก 20 นาทีคือ 10:45 คำตอบคือ (A) รถไฟ 10:45"
+  },
+  "v1_q46": {
+    "zh": "太太說「不是放在書桌上，就是跟字典放在一起」，意思是課本一定在書桌附近的地方，要兒子再仔細找找。答案是（A）。",
+    "id": "Ibu berkata \"tidak di atas meja belajar, ya di samping kamus\", artinya buku pasti ada di sekitar meja belajar. Jawabannya (A).",
+    "vi": "Mẹ nói \"không phải ở trên bàn thì cũng ở cạnh từ điển\", nghĩa là sách chắc chắn ở gần bàn học. Đáp án (A).",
+    "tl": "Sinabi ng ina \"hindi nasa mesa ng pag-aaral ay nasa tabi ng diksyonaryo\", ibig sabihin ang libro ay tiyak na nasa malapit ng mesa ng pag-aaral. Ang sagot ay (A).",
+    "th": "แม่พูดว่า \"ไม่ก็อยู่บนโต๊ะ ก็อยู่ข้างๆ พจนานุกรม\" หมายความว่าหนังสือเรียนต้องอยู่แถวๆ โต๊ะเรียน คำตอบคือ (A)"
+  },
+  "v1_q47": {
+    "zh": "小姐說「我喜歡安靜的環境」，表示她不喜歡現在人多、吵鬧的環境，所以答案是（C）她不喜歡現在這裡的樣子。",
+    "id": "Wanita berkata \"saya suka lingkungan yang tenang\", berarti dia tidak suka lingkungan yang ramai sekarang. Jawabannya (C) dia tidak suka tampilan tempat ini sekarang.",
+    "vi": "Người phụ nữ nói \"tôi thích môi trường yên tĩnh\", nghĩa là cô ấy không thích môi trường đông đúc hiện tại. Đáp án (C) cô ấy không thích nơi này bây giờ.",
+    "tl": "Sinabi ng babae \"gusto ko ang tahimik na kapaligiran\", ibig sabihin hindi niya gusto ang maingay na kapaligiran ngayon. Ang sagot ay (C) hindi niya gusto ang hitsura ng lugar ngayon.",
+    "th": "ผู้หญิงพูดว่า \"ฉันชอบสภาพแวดล้อมที่เงียบสงบ\" หมายความว่าเธอไม่ชอบสภาพแวดล้อมที่มีคนมากในตอนนี้ คำตอบคือ (C) เธอไม่ชอบสภาพของที่นี่ตอนนี้"
+  },
+  "v1_q48": {
+    "zh": "小姐說「穿褲子比較方便照顧小孩」，意思是她現在穿裙子不方便，因為要照顧小孩。答案是（B）她現在穿裙子不方便。",
+    "id": "Wanita berkata \"memakai celana lebih nyaman untuk merawat anak\", artinya memakai rok tidak nyaman sekarang karena harus merawat anak. Jawabannya (B) memakai rok tidak nyaman sekarang.",
+    "vi": "Người phụ nữ nói \"mặc quần tiện hơn khi chăm sóc trẻ em\", nghĩa là mặc váy bây giờ không tiện vì phải chăm sóc trẻ. Đáp án (B) bây giờ mặc váy không tiện.",
+    "tl": "Sinabi ng babae \"mas maginhawa ang magsuot ng pantalon para alagaan ang bata\", ibig sabihin hindi maginhawa ang magsuot ng palda ngayon dahil kailangan alagaan ang bata. Ang sagot ay (B) hindi maginhawa ang magsuot ng palda ngayon.",
+    "th": "ผู้หญิงพูดว่า \"ใส่กางเกงสะดวกกว่าในการดูแลเด็ก\" หมายความว่าใส่กระโปรงตอนนี้ไม่สะดวกเพราะต้องดูแลเด็ก คำตอบคือ (B) ใส่กระโปรงตอนนี้ไม่สะดวก"
+  },
+  "v1_q49": {
+    "zh": "小姐說「如果可以的話，我想請一個月」，她最希望能請到一個月的假。答案是（C）給她一個月的假。",
+    "id": "Wanita berkata \"kalau bisa, saya ingin cuti sebulan\", dia paling ingin cuti sebulan. Jawabannya (C) memberikan cuti sebulan.",
+    "vi": "Người phụ nữ nói \"nếu được, tôi muốn nghỉ một tháng\", cô ấy muốn nhất là nghỉ một tháng. Đáp án (C) cho cô ấy nghỉ một tháng.",
+    "tl": "Sinabi ng babae \"kung maaari, gusto kong mag-leave ng isang buwan\", siya ay pinaka-gustong mag-leave ng isang buwan. Ang sagot ay (C) bigyan siya ng isang buwang leave.",
+    "th": "ผู้หญิงพูดว่า \"ถ้าได้ อยากลาหนึ่งเดือน\" เธอต้องการลาหนึ่งเดือนมากที่สุด คำตอบคือ (C) ให้เธอลาหนึ่งเดือน"
+  },
+  "v1_q50": {
+    "zh": "兒子打電話說「請寄一些錢給我，我要買衣服」，原因是「我變胖了，那些衣服都穿不下了」。所以他需要錢買新衣服。答案是（B）。",
+    "id": "Putra menelepon berkata \"tolong kirimkan uang, saya mau beli baju\" karena \"saya gemuk, baju lama tidak muat\". Jadi dia butuh uang untuk beli baju baru. Jawabannya (B).",
+    "vi": "Con trai gọi điện nói \"xin gửi tiền cho con, con muốn mua quần áo\" vì \"con béo lên rồi, quần áo cũ không mặc được\". Nên anh ấy cần tiền mua quần áo mới. Đáp án (B).",
+    "tl": "Ang anak na lalaki ay tumawag at nagsabi \"pakipadala ng pera, gusto kong bumili ng damit\" dahil \"tumaba ako, hindi na kasya ang mga damit\". Kaya siya ay nangangailangan ng pera para bumili ng bagong damit. Ang sagot ay (B).",
+    "th": "ลูกชายโทรมาพูดว่า \"ช่วยส่งเงินมาให้หน่อย จะซื้อเสื้อผ้า\" เพราะ \"อ้วนขึ้น ใส่เสื้อผ้าเดิมไม่ได้แล้ว\" ดังนั้นเขาต้องการเงินซื้อเสื้อผ้าใหม่ คำตอบคือ (B)"
+  }
+}
