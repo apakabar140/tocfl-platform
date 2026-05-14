@@ -486,6 +486,15 @@ body {
     </div>
     <div class="section-label" id="home-sec2">練習紀錄</div>
     <div id="history-section" style="display:flex;flex-direction:column;gap:10px;"></div>
+    <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);">
+      <div style="font-size:11px;color:var(--text-lt);line-height:1.7;text-align:center;">
+        📋 <strong style="color:var(--text-md);">題目來源聲明</strong><br>
+        本平台所使用之測驗題目均來自<strong>華語文能力測驗（TOCFL）官方模擬試題</strong>，<br>
+        僅供學習練習使用。<br>
+        <a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);font-size:11px;">🔗 tocfl.edu.tw/tocfl/</a><br>
+        <span style="font-size:10px;">Questions sourced from official TOCFL mock tests. For practice purposes only.</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -942,7 +951,10 @@ function buildHistorySection() {
   summaryDiv.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
       <div style="font-size:14px;font-weight:700;">${currentLang==='id'?'Total Latihan':currentLang==='vi'?'Tổng luyện tập':currentLang==='tl'?'Kabuuang Pagsasanay':currentLang==='th'?'รวมการฝึก':'總練習'}</div>
-      <div style="font-size:20px;font-weight:900;color:var(--primary);">${pct}%</div>
+      <div style="text-align:right;">
+        <div style="font-size:20px;font-weight:900;color:var(--primary);line-height:1;">${pct}%</div>
+        <div style="font-size:10px;color:var(--text-lt);">${currentLang==='id'?'Akurasi':currentLang==='vi'?'Độ chính xác':currentLang==='tl'?'Katumpakan':currentLang==='th'?'ความแม่นยำ':'正確率'}</div>
+      </div>
     </div>
     <div style="background:var(--border);border-radius:100px;height:8px;overflow:hidden;">
       <div style="background:var(--primary);height:8px;border-radius:100px;width:${pct}%;transition:width 1s ease;"></div>
