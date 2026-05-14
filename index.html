@@ -433,6 +433,13 @@ body {
       <label id="lbl-dob">出生年月日 / Date of Birth (YYYYMMDD)</label>
       <input type="text" id="inp-dob" placeholder="e.g. 19950320" maxlength="8" inputmode="numeric">
     </div>
+    <div style="margin:16px 0 0;padding:14px 16px;background:#f9f6f2;border-radius:12px;border:1px solid var(--border);text-align:center;">
+      <div style="font-size:11px;color:var(--text-md);line-height:1.8;">
+        📋 <strong>題目來源聲明</strong><br>
+        本平台所使用之測驗題目均來自<a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">華語文能力測驗（TOCFL）官方模擬試題</a>，僅供學習練習使用。<br>
+        <span style="color:var(--text-lt);">Questions sourced from <a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">official TOCFL mock tests</a>. For practice purposes only.</span>
+      </div>
+    </div>
     <button class="login-btn" id="login-btn" onclick="doLogin()">
       <span id="login-btn-text">登入 / Login</span>
     </button>
@@ -487,12 +494,9 @@ body {
     <div class="section-label" id="home-sec2">練習紀錄</div>
     <div id="history-section" style="display:flex;flex-direction:column;gap:10px;"></div>
     <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);">
-      <div style="font-size:11px;color:var(--text-lt);line-height:1.7;text-align:center;">
+      <div style="font-size:11px;color:var(--text-lt);line-height:1.8;text-align:center;" id="copyright-text">
         📋 <strong style="color:var(--text-md);">題目來源聲明</strong><br>
-        本平台所使用之測驗題目均來自<strong>華語文能力測驗（TOCFL）官方模擬試題</strong>，<br>
-        僅供學習練習使用。<br>
-        <a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);font-size:11px;">🔗 tocfl.edu.tw/tocfl/</a><br>
-        <span style="font-size:10px;">Questions sourced from official TOCFL mock tests. For practice purposes only.</span>
+        本平台所使用之測驗題目均來自<a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">華語文能力測驗（TOCFL）官方模擬試題</a>，僅供學習練習使用。
       </div>
     </div>
   </div>
@@ -772,9 +776,27 @@ function updateUI() {
   buildVolCards();
   const histEl2 = document.getElementById('history-section');
   if (histEl2) { histEl2.innerHTML = ''; buildHistorySection(); }
+  updateCopyright();
 }
 
 // ── Login ──
+
+const COPYRIGHT_TEXTS = {
+  zh: `本平台所使用之測驗題目均來自<a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">華語文能力測驗（TOCFL）官方模擬試題</a>，僅供學習練習使用。`,
+  id: `Soal-soal dalam platform ini bersumber dari <a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">soal simulasi resmi TOCFL</a>, hanya untuk keperluan belajar.`,
+  vi: `Các câu hỏi trong nền tảng này được lấy từ <a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">đề thi thử chính thức của TOCFL</a>, chỉ dùng cho mục đích học tập.`,
+  tl: `Ang mga tanong sa platform na ito ay mula sa <a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">opisyal na mock test ng TOCFL</a>, para sa layuning pag-aaral lamang.`,
+  th: `ข้อสอบในแพลตฟอร์มนี้มาจาก<a href="https://tocfl.edu.tw/tocfl/" target="_blank" style="color:var(--primary);text-decoration:underline;">ข้อสอบจำลองอย่างเป็นทางการของ TOCFL</a> เพื่อการเรียนรู้เท่านั้น`,
+};
+
+function updateCopyright() {
+  const el = document.getElementById('copyright-text');
+  if (!el) return;
+  const lang = currentUser?.lang || currentLang;
+  const text = COPYRIGHT_TEXTS[lang] || COPYRIGHT_TEXTS['zh'];
+  el.innerHTML = `📋 <strong style="color:var(--text-md);">題目來源聲明</strong><br>${text}`;
+}
+
 async function doLogin() {
   const nat = document.getElementById('inp-nationality').value;
   const pass = document.getElementById('inp-passport').value.trim().toUpperCase();
@@ -876,6 +898,7 @@ function showHome() {
   updateUI();
   const histEl = document.getElementById('history-section');
   if (histEl) { histEl.innerHTML = ''; buildHistorySection(); }
+  updateCopyright();
   showScreen('screen-home');
 }
 
