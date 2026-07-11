@@ -1317,10 +1317,30 @@ function nextQuestion() {
   else renderQuestion();
 }
 
+async function notifyComplete(vol) {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'complete',
+        passport: currentUser?.passport,
+        vol: vol,
+        timestamp: new Date().toISOString()
+      })
+    });
+  } catch(e) {}
+}
+
 function showResults() {
   if (currentAudio) { currentAudio.pause(); currentAudio = null; }
   const total = quizQuestions.length;
   const pct = Math.round(score/total*100);
+
+  // 模擬考試完成 → 通知 Apps Script 記錄完成次數
+  if (quizMode === 'mock' && currentVol > 0) {
+    notifyComplete(currentVol);
+  }
   document.getElementById('res-emoji').textContent = pct>=80?'🏆':pct>=60?'👍':pct>=40?'📚':'💪';
   document.getElementById('res-title').textContent = quizMode==='mock' ? t('resMockTitle') : t('resTitle');
   document.getElementById('res-score').textContent = score;
